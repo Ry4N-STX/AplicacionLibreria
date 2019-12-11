@@ -1,5 +1,5 @@
 package ec.edu.ups.crud.controlador;
-
+  
 import java.util.List;
 
 import javax.annotation.PostConstruct;
