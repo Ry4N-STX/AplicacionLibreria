@@ -11,7 +11,7 @@ public class Carrito {
 	@Id
 	@Column(name="car_id")
 	private int idCarrito;
-	
+	//comtrio
 	
 	@Column(name="car_cantidad")
 	private int cantidad;
