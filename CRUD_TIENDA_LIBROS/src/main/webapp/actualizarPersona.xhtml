@@ -17,6 +17,7 @@
 <h:commandButton action="#{usuarioControlador.buscarpersona()}" value="Buscar" />
 
 </h:panelGrid>
+
 </h:form>
 <h:form>
 <h:panelGrid columns="3">
@@ -55,7 +56,9 @@
 <h:inputText value="#{usuarioControlador.usuario.tipo}" id="tipo"/>
 <h:message for="tipo"/>
 
+<h:commandButton action="#{usuarioControlador.cargar()}" value="Cargar" />
 <h:commandButton action="#{usuarioControlador.actualizarp()}" value="Guardar" />
+
 
 </h:panelGrid>
 </h:form>

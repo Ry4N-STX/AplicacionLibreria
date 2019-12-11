@@ -39,11 +39,11 @@ public class Producto {
 	private int stock;
 	
 	@Column(name="pro_precio", length = 10)
-	private long precio;
+	private double precio;
 	
 	@Column(name="pro_cantidad_vendidos", length = 10)
 	private int cantidad_vendidos;
-	
+	 
 	@Column(name="pro_likes", length = 10)
 	private int likes;
 	
@@ -54,10 +54,6 @@ public class Producto {
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_prod_autor_FK", referencedColumnName = "pro_ISBN")
 	private List<Autor> autor;
-	
-	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_prod_categoria_FK", referencedColumnName = "pro_ISBN")
-	private List<Categoria> categoria;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
@@ -119,11 +115,11 @@ public class Producto {
 		this.stock = stock;
 	}
 
-	public long getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(long precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
@@ -157,14 +153,6 @@ public class Producto {
 
 	public void setAutor(List<Autor> autor) {
 		this.autor = autor;
-	}
-
-	public List<Categoria> getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(List<Categoria> categoria) {
-		this.categoria = categoria;
 	}
 
 	public List<Carrito> getCarrito() {

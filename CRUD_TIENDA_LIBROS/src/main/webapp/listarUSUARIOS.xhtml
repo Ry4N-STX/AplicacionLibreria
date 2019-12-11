@@ -6,11 +6,8 @@
 
 <h:head></h:head> 
 <body> 
-<h1>lISTAR PERSONA</h1>
+<h1>LISTA PERSONA</h1>
 <h:form>
-
- 
-
 <h:dataTable value="#{usuarioControlador.mostrar()}" var="usu">
 <h:column>
 <f:facet name="header1" value="Cedula">usu_cedula</f:facet>
@@ -24,10 +21,6 @@
 <h:column>
 <f:facet name="header3" value="Apellidos">usu_apellidos</f:facet>
 #{usu.apellidos}
-</h:column>
-<h:column>
-<f:facet name="header4" value="Telefono">usu_telefono</f:facet>
-#{usu.telefono}
 </h:column>
 <h:column>
 <f:facet name="header4" value="Apellidos">usu_telefono</f:facet>
@@ -53,8 +46,54 @@
 <f:facet name="header9" value="Tipo">usu_tipo</f:facet>
 #{usu.tipo}
 </h:column>
-
+<h:column>
+<h:commandButton action="#{usuarioControlador.eliminar(usu.cedula)}" value="Eliminar" />
+</h:column>
+<h:column>
+<h:commandButton action="#{usuarioControlador.buscarPER(usu.cedula)}" value="Modificar" />
+</h:column>
 </h:dataTable>
+<h1>Actualizar PERSONA</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="Nombres:" for="nombres"/>
+<h:inputText value="#{usuarioControlador.usuario.nombres}" id="nombre"/>
+<h:message for="nombres"/>
+
+<h:outputLabel value="Apellido:" for="apellido" />
+<h:inputText value="#{usuarioControlador.usuario.apellidos}" id="apellido"/>
+<h:message for="apellido"/>
+
+<h:outputLabel value="Telefono:" for="telefono" />
+<h:inputText value="#{usuarioControlador.usuario.telefono}" id="telefono"/>
+<h:message for="telefono"/>
+
+<h:outputLabel value="Fecha Nacimiento:" for="nacimiento"/>
+<h:inputText value="#{usuarioControlador.usuario.fecha_nacimiento}" id="nacimiento">
+<f:convertDateTime pattern="yyyy/MM/dd" />
+</h:inputText>
+<h:message for="nacimiento"/>
+
+<h:outputLabel value="Email:" for="email"/>
+<h:inputText value="#{usuarioControlador.usuario.email}" id="email"/>
+<h:message for="email"/>
+
+<h:outputLabel value="Contraseña:" for="contrasenia"/>
+<h:inputText value="#{usuarioControlador.usuario.password}" id="contrasenia"/>
+<h:message for="contrasenia"/>
+
+<h:outputLabel value="Vivienda:" for="vivienda"/>
+<h:inputText value="#{usuarioControlador.usuario.direccion_vivienda}" id="vivienda"/>
+<h:message for="vivienda"/>
+
+<h:outputLabel value="Tipo Usuario:" for="tipo"/>
+<h:inputText value="#{usuarioControlador.usuario.tipo}" id="tipo"/>
+<h:message for="tipo"/>
+
+<h:commandButton action="#{usuarioControlador.actualizarp()}" value="Guardar" />
+</h:panelGrid>
+</h:form>
 
 
 
