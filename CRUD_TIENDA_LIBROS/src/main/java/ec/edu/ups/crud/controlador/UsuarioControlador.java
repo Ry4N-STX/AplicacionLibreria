@@ -10,8 +10,6 @@ import javax.inject.Inject;
 import ec.edu.ups.crud.datos.UsuarioDAO;
 import ec.edu.ups.crud.modelo.Usuario;
 
-
-
 @ManagedBean
 @ViewScoped
 public class UsuarioControlador {
