@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>LISTA AUTORES</h1>
+<h:form>
+<h:dataTable value="#{autorControlador.mostrarAu()}" var="aut">
+<h:column>
+<f:facet name="header" value="ID">ID Autor</f:facet>
+#{aut.idAutor}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{aut.nombre_autor}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nacionalodad">Nacionalidad</f:facet>
+#{aut.nacionalidad}
+</h:column>
+<h:column>
+<h:commandButton action="#{autorControlador.eliminarAu(aut.idAutor)}" value="Eliminar" />
+</h:column>
+<h:column>
+<h:commandButton action="#{autorControlador.buscarAu(aut.idAutor)}" value="Buscar" />
+</h:column>
+</h:dataTable>
+</h:form>
+
+<h1>AUTOR</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="ID AUTOR:" for="idaut" />
+<h:inputText value="#{autorControlador.autor.idAutor}" id="idaut"/>
+<h:message for="idaut"/>
+
+<h:outputLabel value="Nombre Autor:" for="nombreA"/>
+<h:inputText value="#{autorControlador.autor.nombre_autor}" id="nombreA"/>
+<h:message for="nombreA"/>
+
+<h:outputLabel value="Nacionalidad:" for="nacionalidad"/>
+<h:inputText value="#{autorControlador.autor.nacionalidad}" id="nacionalidad"/>
+<h:message for="nacionalidad"/>
+
+<h:commandButton action="#{autorControlador.actualizarAU()}" value="Guardar" />
+<h:commandButton  action="crearAutor" value="volver">
+</h:commandButton>
+
+</h:panelGrid>
+</h:form>
+
+</body> 
+</html>

@@ -48,8 +48,13 @@
 <h:inputText value="#{usuarioControlador.usuario.tipo}" id="tipo"/>
 <h:message for="tipo"/>
 
+<h:outputLabel value="Foto:" for="img"/>
+<h:inputText value="#{usuarioControlador.usuario.URL}" id="img"/>
+<h:message for="img"/>
+
 <h:commandButton action="#{usuarioControlador.guardarPersona()}" value="Guardar" />
-<h:commandButton action="#{usuarioControlador.limpiar()}" value="Limpiar Campos" />
+<h:commandButton  action="listarUSUARIOS" value="Lista Usuarios">
+</h:commandButton>
 
 </h:panelGrid>
 </h:form>

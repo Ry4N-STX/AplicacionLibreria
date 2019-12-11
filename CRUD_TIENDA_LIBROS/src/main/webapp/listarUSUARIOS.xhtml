@@ -10,41 +10,45 @@
 <h:form>
 <h:dataTable value="#{usuarioControlador.mostrar()}" var="usu">
 <h:column>
-<f:facet name="header1" value="Cedula">usu_cedula</f:facet>
+<f:facet name="header" value="Cedula">Cedula</f:facet>
 #{usu.cedula}
 </h:column>
 
 <h:column>
-<f:facet name="header2" value="Nombres">usu_nombres</f:facet>
+<f:facet name="header" value="Nombres">Nombres</f:facet>
 #{usu.nombres}
 </h:column>
 <h:column>
-<f:facet name="header3" value="Apellidos">usu_apellidos</f:facet>
+<f:facet name="header" value="Apellidos">Apellidos</f:facet>
 #{usu.apellidos}
 </h:column>
 <h:column>
-<f:facet name="header4" value="Apellidos">usu_telefono</f:facet>
+<f:facet name="header" value="Apellidos">Telefono</f:facet>
 #{usu.telefono}
 </h:column>
 <h:column>
-<f:facet name="header5" value="Direccion">usu_direccion</f:facet>
+<f:facet name="header" value="Direccion">Direccion</f:facet>
 #{usu.direccion_vivienda}
 </h:column>
 <h:column>
-<f:facet name="header6" value="Fecha Nacimiento">usu_fecha_nacimiento</f:facet>
+<f:facet name="header" value="Fecha Nacimiento">Fecha Nacimiento</f:facet>
 #{usu.fecha_nacimiento}
 </h:column>
 <h:column>
-<f:facet name="header7" value="Correo">usu_email</f:facet>
+<f:facet name="header" value="Correo">Email</f:facet>
 #{usu.email}
 </h:column>
 <h:column>
-<f:facet name="header8" value="Contrasenia">usu_contrasenia</f:facet>
+<f:facet name="header" value="Contrasenia">Contrasenia</f:facet>
 #{usu.password}
 </h:column>
 <h:column>
-<f:facet name="header9" value="Tipo">usu_tipo</f:facet>
+<f:facet name="header" value="Tipo">Tipo</f:facet>
 #{usu.tipo}
+</h:column>
+<h:column>
+<f:facet name="header" value="Tipo">FOTO</f:facet>
+#{usu.URL}
 </h:column>
 <h:column>
 <h:commandButton action="#{usuarioControlador.eliminar(usu.cedula)}" value="Eliminar" />
@@ -92,6 +96,8 @@
 <h:message for="tipo"/>
 
 <h:commandButton action="#{usuarioControlador.actualizarp()}" value="Guardar" />
+<h:commandButton  action="crearPersona" value="Volver">
+</h:commandButton>
 </h:panelGrid>
 </h:form>
 

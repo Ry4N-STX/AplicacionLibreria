@@ -56,6 +56,9 @@ public class Usuario {
 	@Column(name="usu_tipo")
 	private String Tipo;
 	
+	@Column(name="usu_imagen")
+	private String URL;
+	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario_tarjeta_FK", referencedColumnName = "usu_cedula")
 	private List<Tarjeta> tarjeta;
@@ -71,6 +74,7 @@ public class Usuario {
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario_carrito_FK", referencedColumnName = "usu_cedula")
 	private List<Carrito> carrito;
+
 
 	public String getCedula() {
 		return cedula;
@@ -198,13 +202,24 @@ public class Usuario {
 		this.carrito = carrito;
 	}
 
+	
+	public String getURL() {
+		return URL;
+	}
+
+	public void setURL(String uRL) {
+		URL = uRL;
+	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + ", email=" + email
 				+ ", telefono=" + telefono + ", fecha_nacimiento=" + fecha_nacimiento + ", password=" + password
 				+ ", numero_compras=" + numero_compras + ", monto_compras=" + monto_compras + ", direccion_vivienda="
-				+ direccion_vivienda + ", Tipo=" + Tipo + "]";
+				+ direccion_vivienda + ", Tipo=" + Tipo + ", URL=" + URL + "]";
 	}
+
+
 	
 	
 

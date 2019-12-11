@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>LISTA CATEGORIAS</h1>
+<h:form>
+<h:dataTable value="#{categoriaControlador.mostrarCat()}" var="cat">
+<h:column>
+<f:facet name="header" value="ID">ID Categoria</f:facet>
+#{cat.idCategoria}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{cat.nombre}
+</h:column>
+<h:column>
+<h:commandButton action="#{categoriaControlador.eliminarCA(cat.idCategoria)}" value="Eliminar" />
+</h:column>
+<h:column>
+<h:commandButton action="#{categoriaControlador.buscarCA(cat.idCategoria)}" value="Modificar" />
+</h:column>
+</h:dataTable>
+</h:form>
+
+<h1>Categoria</h1>
+<h:form>
+<h:panelGrid columns="3">
+<h:outputLabel value="ID CATEGORIA:" for="idcat" />
+<h:inputText value="#{categoriaControlador.categoria.idCategoria}" id="idcat"/>
+<h:message for="idcat"/>
+
+<h:outputLabel value="Nombre Categoria:" for="nombreC"/>
+<h:inputText value="#{categoriaControlador.categoria.nombre}" id="nombreC"/>
+<h:message for="nombreC"/>
+<h:commandButton action="#{categoriaControlador.actualizarCA()}" value="Guardar" />
+<h:commandButton  action="crearcategoria" value="volver">
+</h:commandButton>
+</h:panelGrid>
+</h:form>
+
+</body> 
+</html>

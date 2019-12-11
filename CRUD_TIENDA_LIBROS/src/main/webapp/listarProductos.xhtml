@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+
+<h1>LISTA DE PRODUCTOS</h1>
+<h:form>
+<h:dataTable value="#{productoControlado.mostrarPro()}" var="pr">
+<h:column>
+<f:facet name="header" value="ISBN">ISBN</f:facet>
+#{pr.ISBN}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{pr.nombre}
+</h:column>
+<h:column>
+<f:facet name="header" value="Editorial">Editorial</f:facet>
+#{pr.editorial}
+</h:column>
+<h:column>
+<f:facet name="header" value="Año Publicacion">Anio Publicacion</f:facet>
+#{pr.anio_publicacion}
+</h:column>
+<h:column>
+<f:facet name="header" value="Precio">Precio</f:facet>
+#{pr.precio}
+</h:column>
+<h:column>
+<f:facet name="header" value="Stock">Stock</f:facet>
+#{pr.stock}
+</h:column>
+<h:column>
+<f:facet name="header" value="Descripcion">Descripcion</f:facet>
+#{pr.descripcion}
+</h:column>
+<h:column>
+<f:facet name="header" value="Imagen">Link</f:facet>
+#{pr.link}
+</h:column>
+<h:column>
+<f:facet name="header" value="Likes">Likes</f:facet>
+#{pr.likes}
+</h:column>
+<h:column>
+<f:facet name="header" value="Vendidos">Vendidos</f:facet>
+#{pr.cantidad_vendidos}
+</h:column>
+<h:column>
+<f:facet name="header" value="Categoria">ID Categoria</f:facet>
+#{pr.id_cat_producto_FK}
+</h:column>
+<h:column>
+<f:facet name="header" value="Autor">ID Autor</f:facet>
+#{pr.id_aut_producto_FK}
+</h:column>
+<h:column>
+<h:commandButton action="#{productoControlado.eliminar(pr.ISBN)}" value="Eliminar" />
+</h:column>
+<h:column>
+<h:commandButton action="#{productoControlado.buscarPRO(pr.ISBN)}" value="Actualizar" />
+</h:column>
+</h:dataTable>
+</h:form>
+
+<h1>PRODUCTO</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="ISBN:" for="isbn" />
+<h:inputText value="#{productoControlado.producto.ISBN}" id="isbn"/>
+<h:message for="isbn"/>
+
+<h:outputLabel value="Nombre:" for="nombreP"/>
+<h:inputText value="#{productoControlado.producto.nombre}" id="nombreP"/>
+<h:message for="nombreP"/>
+
+<h:outputLabel value="Editorial:" for="edi" />
+<h:inputText value="#{productoControlado.producto.editorial}" id="edi"/>
+<h:message for="edi"/>
+
+<h:outputLabel value="Año Publicacion:" for="anio"/>
+<h:inputText value="#{productoControlado.producto.anio_publicacion}" id="anio"/>
+<h:message for="anio"/>
+
+<h:outputLabel value="Precio:" for="precio"/>
+<h:inputText value="#{productoControlado.producto.precio}" id="precio"/>
+<h:message for="precio"/>
+
+<h:outputLabel value="Stok:" for="stok"/>
+<h:inputText value="#{productoControlado.producto.stock}" id="stok"/>
+<h:message for="stok"/>
+
+<h:outputLabel value="Descripcion:" for="desc"/>
+<h:inputText value="#{productoControlado.producto.descripcion}" id="desc"/>
+<h:message for="desc"/>
+
+<h:outputLabel value="Imagen:" for="img"/>
+<h:inputText value="#{productoControlado.producto.link}" id="img"/>
+<h:message for="img"/>
+
+<h:outputLabel value="Categorias" for="cat"/>
+<h:inputText value="#{productoControlado.producto.id_cat_producto_FK}" id="cat"/>
+<h:message for="cat"/>
+
+<h:outputLabel value="Autor" for="aut"/>
+<h:inputText value="#{productoControlado.producto.id_aut_producto_FK}" id="aut"/>
+<h:message for="aut"/>
+
+<h:commandButton action="#{productoControlado.actualizarPRO()}" value="Guardar" />
+<h:commandButton  action="crearProducto" value="volver">
+</h:commandButton>
+</h:panelGrid>
+</h:form>
+
+
+</body> 
+</html>

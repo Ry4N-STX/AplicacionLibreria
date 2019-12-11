@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="LIB_CATEGORIA")
 @Table(name="LIB_CATEGORIA")
 public class Categoria {
 	
@@ -63,7 +63,7 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria [IdCategoria=" + IdCategoria + ", Nombre=" + Nombre + ", productos=" + productos + "]";
+		return "Categoria [IdCategoria=" + IdCategoria + ", Nombre=" + Nombre + "]";
 	}
 
 

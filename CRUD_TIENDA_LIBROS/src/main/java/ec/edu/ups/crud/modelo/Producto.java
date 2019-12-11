@@ -8,13 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity(name="LIB_PRODUCTO")
 @Table(name="LIB_PRODUCTO")
 public class Producto {
-	
 	
 	@Id
 	@Column(name="pro_ISBN", length = 10)
@@ -41,19 +43,27 @@ public class Producto {
 	@Column(name="pro_precio", length = 10)
 	private double precio;
 	
-	@Column(name="pro_cantidad_vendidos", length = 10)
+	@Column(name="pro_cantidad_vendidos")
 	private int cantidad_vendidos;
 	 
 	@Column(name="pro_likes", length = 10)
 	private int likes;
 	
+	@Column(name="id_cat_producto_FK")
+	private int id_cat_producto_FK;
+	
+	@Column(name="id_aut_producto_FK")
+	private int id_aut_producto_FK;
+	
+	//@ManyToOne(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	//private Categoria categoria;
+	
+	//@ManyToOne(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	//private Autor autor;
+	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_prod_detalle_FK", referencedColumnName = "pro_ISBN")
 	private List<FACT_Detalle> detalles;
-	
-	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_prod_autor_FK", referencedColumnName = "pro_ISBN")
-	private List<Autor> autor;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
@@ -147,14 +157,6 @@ public class Producto {
 		this.detalles = detalles;
 	}
 
-	public List<Autor> getAutor() {
-		return autor;
-	}
-
-	public void setAutor(List<Autor> autor) {
-		this.autor = autor;
-	}
-
 	public List<Carrito> getCarrito() {
 		return carrito;
 	}
@@ -162,12 +164,57 @@ public class Producto {
 	public void setCarrito(List<Carrito> carrito) {
 		this.carrito = carrito;
 	}
+	
+	
+
+	//public Categoria getCategoria() {
+	//	return categoria;
+	//}
+
+	//public void setCategoria(Categoria categoria) {
+	//	this.categoria = categoria;
+	//}
+
+	public int getId_cat_producto_FK() {
+		return id_cat_producto_FK;
+	}
+
+	public void setId_cat_producto_FK(int id_cat_producto_FK) {
+		this.id_cat_producto_FK = id_cat_producto_FK;
+	}
+
+	public int getId_aut_producto_FK() {
+		return id_aut_producto_FK;
+	}
+
+	public void setId_aut_producto_FK(int id_aut_producto_FK) {
+		this.id_aut_producto_FK = id_aut_producto_FK;
+	}
 
 	@Override
 	public String toString() {
 		return "Producto [ISBN=" + ISBN + ", nombre=" + nombre + ", editorial=" + editorial + ", anio_publicacion="
 				+ anio_publicacion + ", link=" + link + ", descripcion=" + descripcion + ", stock=" + stock
-				+ ", precio=" + precio + ", cantidad_vendidos=" + cantidad_vendidos + ", likes=" + likes + "]";
+				+ ", precio=" + precio + ", cantidad_vendidos=" + cantidad_vendidos + ", likes=" + likes
+				+ ", id_cat_producto_FK=" + id_cat_producto_FK + ", id_aut_producto_FK=" + id_aut_producto_FK + "]";
 	}
+	
+	
+
+
+	//public Autor getAutor() {
+	//	return autor;
+	//}
+
+	//public void setAutor(Autor autor) {
+	//	this.autor = autor;
+	//}
+	
+	
+
+
+
+	
+
 
 }

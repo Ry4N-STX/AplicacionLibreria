@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h1>CREAR AUTOR</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="ID AUTOR:" for="idaut" />
+<h:inputText value="#{autorControlador.autor.idAutor}" id="idaut"/>
+<h:message for="idaut"/>
+
+<h:outputLabel value="Nombre Autor:" for="nombreA"/>
+<h:inputText value="#{autorControlador.autor.nombre_autor}" id="nombreA"/>
+<h:message for="nombreA"/>
+
+<h:outputLabel value="Nacionalidad:" for="nacionalidad"/>
+<h:inputText value="#{autorControlador.autor.nacionalidad}" id="nacionalidad"/>
+<h:message for="nacionalidad"/>
+
+<h:commandButton action="#{autorControlador.guardarAUT()}" value="Guardar" />
+<h:commandButton  action="listaAutor" value="Lista Autores">
+</h:commandButton>
+
+</h:panelGrid>
+</h:form>
+</body> 
+</html>

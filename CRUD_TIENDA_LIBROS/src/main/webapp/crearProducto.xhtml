@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+
+<h1>CREAR PRODUCTO</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="ISBN:" for="isbn" />
+<h:inputText value="#{productoControlado.producto.ISBN}" id="isbn"/>
+<h:message for="isbn"/>
+
+<h:outputLabel value="Nombre:" for="nombreP"/>
+<h:inputText value="#{productoControlado.producto.nombre}" id="nombreP"/>
+<h:message for="nombreP"/>
+
+<h:outputLabel value="Editorial:" for="edi" />
+<h:inputText value="#{productoControlado.producto.editorial}" id="edi"/>
+<h:message for="edi"/>
+
+<h:outputLabel value="Año Publicacion:" for="anio"/>
+<h:inputText value="#{productoControlado.producto.anio_publicacion}" id="anio"/>
+<h:message for="anio"/>
+
+<h:outputLabel value="Precio:" for="precio"/>
+<h:inputText value="#{productoControlado.producto.precio}" id="precio"/>
+<h:message for="precio"/>
+
+<h:outputLabel value="Stok:" for="stok"/>
+<h:inputText value="#{productoControlado.producto.stock}" id="stok"/>
+<h:message for="stok"/>
+
+<h:outputLabel value="Descripcion:" for="desc"/>
+<h:inputText value="#{productoControlado.producto.descripcion}" id="desc"/>
+<h:message for="desc"/>
+
+<h:outputLabel value="Imagen:" for="img"/>
+<h:inputText value="#{productoControlado.producto.link}" id="img"/>
+<h:message for="img"/>
+
+<h:outputLabel value="Categorias" for="cat"/>
+<h:inputText value="#{productoControlado.producto.id_cat_producto_FK}" id="cat"/>
+<h:message for="cat"/>
+
+<h:outputLabel value="Autor" for="aut"/>
+<h:inputText value="#{productoControlado.producto.id_aut_producto_FK}" id="aut"/>
+<h:message for="aut"/>
+
+<h:commandButton action="#{productoControlado.guardarProducto()}" value="Guardar" />
+<h:commandButton  action="listarProductos" value="Lista Productos">
+</h:commandButton>
+</h:panelGrid>
+</h:form>
+
+<h1>LISTA AUTORES</h1>
+<h:form>
+<h:dataTable value="#{autorControlador.mostrarAu()}" var="aut">
+<h:column>
+<f:facet name="header" value="ID">ID Autor</f:facet>
+#{aut.idAutor}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{aut.nombre_autor}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nacionalodad">Nacionalidad</f:facet>
+#{aut.nacionalidad}
+</h:column>
+</h:dataTable>
+</h:form>
+
+<h1>LISTA CATEGORIASS</h1>
+<h:form>
+<h:dataTable value="#{categoriaControlador.mostrarCat()}" var="cat">
+<h:column>
+<f:facet name="header" value="ID">ID Categoria</f:facet>
+#{cat.idCategoria}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{cat.nombre}
+</h:column>
+</h:dataTable>
+</h:form>
+
+</body> 
+</html>
