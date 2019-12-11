@@ -43,7 +43,7 @@ public class Producto {
 	
 	@Column(name="pro_cantidad_vendidos", length = 10)
 	private int cantidad_vendidos;
-	
+	 
 	@Column(name="pro_likes", length = 10)
 	private int likes;
 	
