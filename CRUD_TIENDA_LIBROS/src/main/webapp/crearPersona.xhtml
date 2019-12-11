@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body>
+<h1>CREAR PERSONA</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="Cedula:" for="cedula" />
+<h:inputText value="#{usuarioControlador.usuario.cedula}" id="cedula"/>
+<h:message for="cedula"/>
+
+<h:outputLabel value="Nombres:" for="nombres"/>
+<h:inputText value="#{usuarioControlador.usuario.nombres}" id="nombre"/>
+<h:message for="nombres"/>
+
+<h:outputLabel value="Apellido:" for="apellido" />
+<h:inputText value="#{usuarioControlador.usuario.apellidos}" id="apellido"/>
+<h:message for="apellido"/>
+
+<h:outputLabel value="Telefono:" for="telefono" />
+<h:inputText value="#{usuarioControlador.usuario.telefono}" id="telefono"/>
+<h:message for="telefono"/>
+
+<h:outputLabel value="Fecha Nacimiento:" for="nacimiento"/>
+<h:inputText value="#{usuarioControlador.usuario.fecha_nacimiento}" id="nacimiento">
+<f:convertDateTime pattern="yyyy/MM/dd" />
+</h:inputText>
+<h:message for="nacimiento"/>
+
+<h:outputLabel value="Email:" for="email"/>
+<h:inputText value="#{usuarioControlador.usuario.email}" id="email"/>
+<h:message for="email"/>
+
+<h:outputLabel value="Contraseña:" for="contrasenia"/>
+<h:inputText value="#{usuarioControlador.usuario.password}" id="contrasenia"/>
+<h:message for="contrasenia"/>
+
+<h:outputLabel value="Vivienda:" for="vivienda"/>
+<h:inputText value="#{usuarioControlador.usuario.direccion_vivienda}" id="vivienda"/>
+<h:message for="vivienda"/>
+
+<h:outputLabel value="Tipo Usuario:" for="tipo"/>
+<h:inputText value="#{usuarioControlador.usuario.tipo}" id="tipo"/>
+<h:message for="tipo"/>
+
+<h:commandButton action="#{usuarioControlador.guardarPersona()}" value="Guardar" />
+<h:commandButton action="#{usuarioControlador.limpiar()}" value="Limpiar Campos" />
+
+</h:panelGrid>
+</h:form>
+<h:form>
+<h:panelGrid>
+<h:outputLabel value="CEDULA:" for="cedulab"/>
+<h:inputText value="#{usuarioControlador.cedulaDATO}" id="cedulab"/>
+<h:message for="cedulab"/>
+
+<h:commandButton action="#{usuarioControlador.buscarpersona()}" value="Buscar" />
+
+</h:panelGrid>
+
+
+
+</h:form>
+
+</body> 
+</html>

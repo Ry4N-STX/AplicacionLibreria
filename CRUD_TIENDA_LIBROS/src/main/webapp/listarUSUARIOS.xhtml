@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h1>lISTAR PERSONA</h1>
+<h:form>
+
+ 
+
+<h:dataTable value="#{usuarioControlador.mostrar()}" var="usu">
+<h:column>
+<f:facet name="header1" value="Cedula">usu_cedula</f:facet>
+#{usu.cedula}
+</h:column>
+
+<h:column>
+<f:facet name="header2" value="Nombres">usu_nombres</f:facet>
+#{usu.nombres}
+</h:column>
+<h:column>
+<f:facet name="header3" value="Apellidos">usu_apellidos</f:facet>
+#{usu.apellidos}
+</h:column>
+<h:column>
+<f:facet name="header4" value="Telefono">usu_telefono</f:facet>
+#{usu.telefono}
+</h:column>
+<h:column>
+<f:facet name="header4" value="Apellidos">usu_telefono</f:facet>
+#{usu.telefono}
+</h:column>
+<h:column>
+<f:facet name="header5" value="Direccion">usu_direccion</f:facet>
+#{usu.direccion_vivienda}
+</h:column>
+<h:column>
+<f:facet name="header6" value="Fecha Nacimiento">usu_fecha_nacimiento</f:facet>
+#{usu.fecha_nacimiento}
+</h:column>
+<h:column>
+<f:facet name="header7" value="Correo">usu_email</f:facet>
+#{usu.email}
+</h:column>
+<h:column>
+<f:facet name="header8" value="Contrasenia">usu_contrasenia</f:facet>
+#{usu.password}
+</h:column>
+<h:column>
+<f:facet name="header9" value="Tipo">usu_tipo</f:facet>
+#{usu.tipo}
+</h:column>
+
+</h:dataTable>
+
+
+
+</h:form>
+</body> 
+</html>
