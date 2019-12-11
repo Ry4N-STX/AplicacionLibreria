@@ -47,10 +47,21 @@ public class UsuarioControlador {
 		return null;
 	}
 	
-	
 	public String buscarpersona() {
 		setUsuario(udao.buscar(this.cedulaDATO));
 		System.out.println("ENCONTRO ESTO :"+udao.buscar(cedulaDATO));
+		return null;
+	}
+	
+	public String mover(String cedula) {
+		buscarPER(cedula);
+		return "actualizarPersona";
+	}
+	
+	public String buscarPER(String cedula) {
+		setUsuario(udao.buscar(cedula));
+		System.out.println("ENCONTRO ESTO :"+cedula);
+		System.out.println("ENCONTRO ESTO :"+udao.buscar(cedula));
 		return null;
 	}
 	
@@ -59,8 +70,8 @@ public class UsuarioControlador {
 		return null;
 	}
 	
-	public String eliminar() {
-		udao.eliminar(this.cedulaDATO);
+	public String eliminar(String cedula) {
+		udao.eliminar(cedula);
 		return null;
 	}
 	
