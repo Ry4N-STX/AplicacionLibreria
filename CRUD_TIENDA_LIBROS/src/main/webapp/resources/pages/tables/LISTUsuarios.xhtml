@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+  <meta charset="utf-8"></meta>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+  <title>AdminLTE 3 | DataTables</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"></link>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></link>
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.css"></link>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css"></link>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"></link>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="../../index3.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"></input>
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+          
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+         
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+           
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="../../index3.html" class="brand-link">
+      <img src="../../dist/img/AdminLTELogo.png"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8"></img>
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"></img>
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+          
+            <a href="#" class="nav-link">
+            
+              <i class="nav-icon fas fa-tachometer-alt">
+              Lista Usuario
+              </i>
+         
+            </a>
+           </li> 
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>MANTENIMIENTO USUARIOS</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">DataTables</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">LISTA DE USUARIOS</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              
+ <h:form>              
+<h:dataTable id="example1" value="#{usuarioControlador.mostrar()}" var="usu" class="table table-bordered table-striped">
+<h:column>
+<f:facet name="header" value="Cedula">Cedula</f:facet>
+#{usu.cedula}
+</h:column>
+
+<h:column>
+<f:facet name="header" value="Nombres">Nombres</f:facet>
+#{usu.nombres}
+</h:column>
+<h:column>
+<f:facet name="header" value="Apellidos">Apellidos</f:facet>
+#{usu.apellidos}
+</h:column>
+<h:column>
+<f:facet name="header" value="Apellidos">Telefono</f:facet>
+#{usu.telefono}
+</h:column>
+<h:column>
+<f:facet name="header" value="Direccion">Direccion</f:facet>
+#{usu.direccion_vivienda}
+</h:column>
+<h:column>
+<f:facet name="header" value="Fecha Nacimiento">Fecha Nacimiento</f:facet>
+#{usu.fecha_nacimiento}
+</h:column>
+<h:column>
+<f:facet name="header" value="Correo">Email</f:facet>
+#{usu.email}
+</h:column>
+<h:column>
+<f:facet name="header" value="Contrasenia">Contrasenia</f:facet>
+#{usu.password}
+</h:column>
+<h:column>
+<f:facet name="header" value="Tipo">Tipo</f:facet>
+#{usu.tipo}
+</h:column>
+<h:column>
+<f:facet name="header" value="Tipo">FOTO</f:facet>
+#{usu.URL}
+</h:column>
+<h:column>
+<h:commandButton action="#{usuarioControlador.eliminar(usu.cedula)}" value="Eliminar" />
+</h:column>
+<h:column>
+<h:commandButton action="#{usuarioControlador.buscarPER(usu.cedula)}" value="Modificar" />
+</h:column>
+</h:dataTable>
+  </h:form>            
+              
+              
+              
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">ACTUALIZAR</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              
+              
+              <h:form>
+<h:panelGrid columns="3">
+
+<h:outputLabel value="Nombres:" for="nombres"/>
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.nombres}" id="nombre"/>
+<h:message for="nombres"/>
+
+<h:outputLabel value="Apellido:" for="apellido" />
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.apellidos}" id="apellido"/>
+<h:message for="apellido"/>
+
+<h:outputLabel value="Telefono:" for="telefono" />
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.telefono}" id="telefono"/>
+<h:message for="telefono"/>
+
+<h:outputLabel value="Fecha Nacimiento:" for="nacimiento"/>
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.fecha_nacimiento}" id="nacimiento">
+<f:convertDateTime pattern="yyyy/MM/dd" />
+</h:inputText>
+<h:message for="nacimiento"/>
+
+<h:outputLabel value="Email:" for="email"/>
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.email}" id="email"/>
+<h:message for="email"/>
+
+<h:outputLabel value="Contraseña:" for="contrasenia"/>
+<h:inputText  class="form-control" value="#{usuarioControlador.usuario.password}" id="contrasenia"/>
+<h:message for="contrasenia"/>
+
+<h:outputLabel value="Vivienda:" for="vivienda"/>
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.direccion_vivienda}" id="vivienda"/>
+<h:message for="vivienda"/>
+
+<h:outputLabel value="Tipo Usuario:" for="tipo"/>
+<h:inputText class="form-control" value="#{usuarioControlador.usuario.tipo}" id="tipo"/>
+<h:message for="tipo"/>
+
+<div class="card-footer">
+
+<h:commandButton class="btn btn-primary" action="#{usuarioControlador.actualizarp()}" value="Guardar" />
+<h:commandButton   class="btn btn-primary" action="crearUSU" value="Volver"></h:commandButton>
+                </div>
+
+
+
+</h:panelGrid>
+</h:form>
+              
+              
+              
+              
+              
+              
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.0.1
+    </div>
+    
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+    });
+  });
+</script>
+</body>
+</html>
