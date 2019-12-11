@@ -70,6 +70,9 @@ public class UsuarioControlador {
 		return null;
 	}
 	
+	
+	
+	
 	public String eliminar(String cedula) {
 		udao.eliminar(cedula);
 		return null;
