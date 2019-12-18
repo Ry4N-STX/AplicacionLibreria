@@ -32,6 +32,7 @@ public class UsuarioDAO {
 	 return em.find(Usuario.class, cedula);  
     }
 	
+	
 	public List<Usuario> listaUsuario(){
 		Query query= em.createQuery("SELECT C FROM LIB_USUARIO C",Usuario.class);
 		return query.getResultList();

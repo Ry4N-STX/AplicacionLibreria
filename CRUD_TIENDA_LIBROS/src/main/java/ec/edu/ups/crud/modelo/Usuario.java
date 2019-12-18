@@ -38,8 +38,8 @@ public class Usuario {
 	private int telefono;
 	
 	@Column(name="usu_fecha_nacimiento")
-	@Temporal(TemporalType.DATE)
-	private Date fecha_nacimiento;
+	//@Temporal(TemporalType.DATE)
+	private String fecha_nacimiento;
 	
 	@Column(name="usu_contrasenia")
 	private String password;
@@ -58,7 +58,7 @@ public class Usuario {
 	
 	@Column(name="usu_imagen")
 	private String URL;
-	
+	/*
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario_tarjeta_FK", referencedColumnName = "usu_cedula")
 	private List<Tarjeta> tarjeta;
@@ -74,7 +74,7 @@ public class Usuario {
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario_carrito_FK", referencedColumnName = "usu_cedula")
 	private List<Carrito> carrito;
-
+*/
 
 	public String getCedula() {
 		return cedula;
@@ -122,11 +122,11 @@ public class Usuario {
 		this.telefono = telefono;
 	}
 
-	public Date getFecha_nacimiento() {
+	public String getFecha_nacimiento() {
 		return fecha_nacimiento;
 	}
 
-	public void setFecha_nacimiento(Date fecha_nacimiento) {
+	public void setFecha_nacimiento(String fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
@@ -169,7 +169,7 @@ public class Usuario {
 	public void setTipo(String tipo) {
 		Tipo = tipo;
 	}
-
+	/*
 	public List<Tarjeta> getTarjeta() {
 		return tarjeta;
 	}
@@ -201,7 +201,7 @@ public class Usuario {
 	public void setCarrito(List<Carrito> carrito) {
 		this.carrito = carrito;
 	}
-
+*/
 	
 	public String getURL() {
 		return URL;

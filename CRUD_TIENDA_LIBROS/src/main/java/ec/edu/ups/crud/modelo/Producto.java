@@ -61,13 +61,13 @@ public class Producto {
 	//@ManyToOne(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	//private Autor autor;
 	
-	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_prod_detalle_FK", referencedColumnName = "pro_ISBN")
-	private List<FACT_Detalle> detalles;
+	//@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	//@JoinColumn(name = "id_prod_detalle_FK", referencedColumnName = "pro_ISBN")
+	//private List<FACT_Detalle> detalles;
 	
-	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
-	private List<Carrito> carrito;
+	//@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	//@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
+	//private List<Carrito> carrito;
 
 	public String getISBN() {
 		return ISBN;
@@ -149,21 +149,21 @@ public class Producto {
 		this.likes = likes;
 	}
 
-	public List<FACT_Detalle> getDetalles() {
-		return detalles;
-	}
+	//public List<FACT_Detalle> getDetalles() {
+//		return detalles;
+	//}
 
-	public void setDetalles(List<FACT_Detalle> detalles) {
-		this.detalles = detalles;
-	}
+	//public void setDetalles(List<FACT_Detalle> detalles) {
+	//this.detalles = detalles;
+	//}
 
-	public List<Carrito> getCarrito() {
-		return carrito;
-	}
+	//public List<Carrito> getCarrito() {
+	//	return carrito;
+	//}
 
-	public void setCarrito(List<Carrito> carrito) {
-		this.carrito = carrito;
-	}
+	//public void setCarrito(List<Carrito> carrito) {
+	//		this.carrito = carrito;
+	//}
 	
 	
 

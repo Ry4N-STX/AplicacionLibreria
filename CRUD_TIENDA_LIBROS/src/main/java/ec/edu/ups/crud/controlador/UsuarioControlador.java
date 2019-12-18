@@ -1,5 +1,6 @@
 package ec.edu.ups.crud.controlador;
   
+import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -39,6 +40,10 @@ public class UsuarioControlador {
 		udao.insertar(usuario);
 		return null;
 	}
+	public String guardarPersonaApli(Usuario usuario1) {
+		udao.insertar(usuario1);
+		return "incertado";
+	}
 	
 	public String limpiar(){
 		setUsuario(null);
@@ -62,6 +67,12 @@ public class UsuarioControlador {
 		System.out.println("ENCONTRO ESTO :"+udao.buscar(cedula));
 		return null;
 	}
+	public Usuario buscarapli(String cedula) {
+		Usuario u=udao.buscar(cedula);
+		return u;
+	}
+	
+
 	
 	public String actualizarp() {
 		udao.actualizar(usuario);
