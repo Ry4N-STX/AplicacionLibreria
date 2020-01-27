@@ -33,6 +33,9 @@ public class Direccion {
 	
 	@Column(name="dir_numero_casa" , length = 10)
 	private String numero_casa;
+	
+	@Column(name="id_usuario_FK" , length = 10)
+	private String id_usuario_FK;
 
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
@@ -100,6 +103,16 @@ public class Direccion {
 	}
 
 
+	public String getId_usuario_FK() {
+		return id_usuario_FK;
+	}
+
+
+	public void setId_usuario_FK(String id_usuario_FK) {
+		this.id_usuario_FK = id_usuario_FK;
+	}
+
+
 	public List<FACT_Cabecera> getCabecera() {
 		return cabecera;
 	}
@@ -113,9 +126,10 @@ public class Direccion {
 	@Override
 	public String toString() {
 		return "Direccion [IdDireccion=" + IdDireccion + ", pais=" + pais + ", ciudad=" + ciudad + ", calle1=" + calle1
-				+ ", calle2=" + calle2 + ", numero_casa=" + numero_casa + "]";
+				+ ", calle2=" + calle2 + ", numero_casa=" + numero_casa + ", id_usuario_FK=" + id_usuario_FK
+				+ ", cabecera=" + cabecera + "]";
 	}
 
-	
+
 
 }

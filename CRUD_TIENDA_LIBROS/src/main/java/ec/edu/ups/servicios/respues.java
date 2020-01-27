@@ -3,6 +3,9 @@ package ec.edu.ups.servicios;
 public class respues {
 private int id;
 private String mensaje;
+/**
+ * Metodos getters y setters
+ */
 public int getId() {
 	return id;
 }

@@ -55,19 +55,14 @@ public class Producto {
 	@Column(name="id_aut_producto_FK")
 	private int id_aut_producto_FK;
 	
-	//@ManyToOne(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	//private Categoria categoria;
 	
-	//@ManyToOne(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	//private Autor autor;
+	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_prod_detalle_FK", referencedColumnName = "pro_ISBN")
+	private List<FACT_Detalle> detalles;
 	
-	//@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	//@JoinColumn(name = "id_prod_detalle_FK", referencedColumnName = "pro_ISBN")
-	//private List<FACT_Detalle> detalles;
-	
-	//@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	//@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
-	//private List<Carrito> carrito;
+	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
+	private List<Carrito> carrito;
 
 	public String getISBN() {
 		return ISBN;

@@ -24,18 +24,20 @@ public class FACT_Cabecera {
 	@Column(name="fac_cab_id")
 	private int IdFactCabecera;
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name="fac_fecha_factura")
-	private Date fecha_factura;
-	
-	@Column(name="fac_numero_fact", length = 10)
-	private int numero_fact;
+	private String fecha_factura;
 	
 	@Column(name="fac_total", length = 10)
 	private double total;
 	
 	@Column(name="fac_iva", length = 10)
-	private int iva;
+	private double iva;
+	
+	@Column(name="id_usuario_FK" , length = 10)
+	private String id_usuario_FK;
+	
+	@Column(name="id_cabecera_tarjeta_FK" , length = 10)
+	private int id_cabecera_tarjeta_FK;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "cabe_detalle_FK", referencedColumnName = "fac_cab_id")
@@ -49,20 +51,12 @@ public class FACT_Cabecera {
 		IdFactCabecera = idFactCabecera;
 	}
 
-	public Date getFecha_factura() {
+	public String getFecha_factura() {
 		return fecha_factura;
 	}
 
-	public void setFecha_factura(Date fecha_factura) {
+	public void setFecha_factura(String fecha_factura) {
 		this.fecha_factura = fecha_factura;
-	}
-
-	public int getNumero_fact() {
-		return numero_fact;
-	}
-
-	public void setNumero_fact(int numero_fact) {
-		this.numero_fact = numero_fact;
 	}
 
 	public double getTotal() {
@@ -73,12 +67,28 @@ public class FACT_Cabecera {
 		this.total = total;
 	}
 
-	public int getIva() {
+	public double getIva() {
 		return iva;
 	}
 
-	public void setIva(int iva) {
+	public void setIva(double iva) {
 		this.iva = iva;
+	}
+
+	public String getId_usuario_FK() {
+		return id_usuario_FK;
+	}
+
+	public void setId_usuario_FK(String id_usuario_FK) {
+		this.id_usuario_FK = id_usuario_FK;
+	}
+
+	public int getId_cabecera_tarjeta_FK() {
+		return id_cabecera_tarjeta_FK;
+	}
+
+	public void setId_cabecera_tarjeta_FK(int id_cabecera_tarjeta_FK) {
+		this.id_cabecera_tarjeta_FK = id_cabecera_tarjeta_FK;
 	}
 
 	public List<FACT_Detalle> getDetalle() {
@@ -91,13 +101,12 @@ public class FACT_Cabecera {
 
 	@Override
 	public String toString() {
-		return "FACT_Cabecera [IdFactCabecera=" + IdFactCabecera + ", fecha_factura=" + fecha_factura + ", numero_fact="
-				+ numero_fact + ", total=" + total + ", iva=" + iva + ", detalle=" + detalle + "]";
+		return "FACT_Cabecera [IdFactCabecera=" + IdFactCabecera + ", fecha_factura=" + fecha_factura + ", total="
+				+ total + ", iva=" + iva + ", id_usuario_FK=" + id_usuario_FK + ", id_cabecera_tarjeta_FK="
+				+ id_cabecera_tarjeta_FK + ", detalle=" + detalle + "]";
 	}
-	
-	
-	
 
 
 
+	
 }

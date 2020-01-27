@@ -7,10 +7,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
-import ec.edu.ups.crud.datos.ProductosDAO;
 import ec.edu.ups.crud.modelo.Autor;
 import ec.edu.ups.crud.modelo.Categoria;
 import ec.edu.ups.crud.modelo.Producto;
+import ec.edu.ups.negocios.*;
 
 
 
@@ -24,7 +24,7 @@ public class ProductoControlado {
 	private Autor autor;
 	
 	@Inject
-	private ProductosDAO pdao;
+	private Gestionbanco pdao;
 	
 	@PostConstruct
 	private void init() {
@@ -47,11 +47,11 @@ public class ProductoControlado {
 		this.producto = producto;
 	}
 
-	public ProductosDAO getPdao() {
+	public Gestionbanco getPdao() {
 		return pdao;
 	}
 
-	public void setPdao(ProductosDAO pdao) {
+	public void setPdao(Gestionbanco pdao) {
 		this.pdao = pdao;
 	}
 	
@@ -75,32 +75,32 @@ public class ProductoControlado {
 
 	public String guardarProducto() {
 		System.out.println(producto);
-		pdao.insertar(producto);
+		pdao.guardarProducto(producto);
 		return null;
 	}
 	
 	public String buscarPRO() {
-		setProducto(pdao.buscar(this.ISBNP));
+		setProducto(pdao.buscarPRO(this.ISBNP));
 		System.out.println(ISBNP);
-		System.out.println(pdao.buscar(this.ISBNP));
+		System.out.println(pdao.buscarPRO(this.ISBNP));
 		return null;
 	}
 	
 	public List<Producto> mostrarPro(){
-  	    return pdao.listaProductos();
+  	    return pdao.mostrarPro();
      }
 	
 	public String eliminar(String ISBN) {
-		pdao.eliminar(ISBN);
+		pdao.eliminarLibro(ISBN);
 		return null;
 	}
 	
 	public String buscarPRO(String ISBN) {
-		setProducto(pdao.buscar(ISBN));
+		setProducto(pdao.buscarPRO(ISBN));
 		return null;
 	}
 	public String actualizarPRO() {
-		pdao.actualizar(producto);
+		pdao.actualizarPRO(producto);
 		return null;
 	}
 

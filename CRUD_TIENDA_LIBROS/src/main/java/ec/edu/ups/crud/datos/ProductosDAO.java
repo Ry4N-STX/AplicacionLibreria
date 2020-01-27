@@ -36,5 +36,10 @@ public class ProductosDAO {
 		return query.getResultList();
 	}
 	
+	public List<Producto> listaProductosporOdren(){
+		Query query= em.createQuery("SELECT P FROM LIB_PRODUCTO P ORDER BY P.pro_cantidad_vendidos",Producto.class);
+		return query.getResultList();
+	}
+	
 
 }
