@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -16,6 +18,7 @@ import javax.persistence.Table;
 public class Tarjeta {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="tar_id")
 	private int IdTarjeta;
 	
@@ -27,6 +30,9 @@ public class Tarjeta {
 	
 	@Column(name="tar_propietario", length = 10)
 	private String propietario;
+	
+	@Column(name="id_usuario_FK", length = 10)
+	private String id_usuario_FK;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cabecera_tarjeta_FK", referencedColumnName = "tar_id")
@@ -64,6 +70,14 @@ public class Tarjeta {
 		this.propietario = propietario;
 	}
 
+	public String getId_usuario_FK() {
+		return id_usuario_FK;
+	}
+
+	public void setId_usuario_FK(String id_usuario_FK) {
+		this.id_usuario_FK = id_usuario_FK;
+	}
+
 	public List<FACT_Cabecera> getCabecera() {
 		return cabecera;
 	}
@@ -75,8 +89,8 @@ public class Tarjeta {
 	@Override
 	public String toString() {
 		return "Tarjeta [IdTarjeta=" + IdTarjeta + ", numeroTarjeta=" + numeroTarjeta + ", codigo_validacion="
-				+ codigo_validacion + ", propietario=" + propietario + "]";
+				+ codigo_validacion + ", propietario=" + propietario + ", id_usuario_FK=" + id_usuario_FK
+				+ ", cabecera=" + cabecera + "]";
 	}
-	
 
 }

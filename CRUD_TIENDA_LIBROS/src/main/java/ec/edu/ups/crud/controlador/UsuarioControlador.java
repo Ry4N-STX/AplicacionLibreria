@@ -10,6 +10,7 @@ import javax.inject.Inject;
 
 import ec.edu.ups.crud.datos.UsuarioDAO;
 import ec.edu.ups.crud.modelo.Usuario;
+import ec.edu.ups.negocios.Gestionbanco;
 
 @ManagedBean
 @ViewScoped
@@ -19,7 +20,7 @@ public class UsuarioControlador {
 	private Usuario usuario;
 	
 	@Inject
-	private UsuarioDAO udao;
+	private Gestionbanco udao;
 	
 	@PostConstruct
 	private void init() {
@@ -37,11 +38,11 @@ public class UsuarioControlador {
 	
 	public String guardarPersona() {
 		System.out.println(usuario);
-		udao.insertar(usuario);
+		udao.guardarPersonaApli(usuario);
 		return null;
 	}
 	public String guardarPersonaApli(Usuario usuario1) {
-		udao.insertar(usuario1);
+		udao.guardarPersonaApli(usuario1);
 		return "incertado";
 	}
 	
@@ -51,8 +52,8 @@ public class UsuarioControlador {
 	}
 	
 	public String buscarpersona() {
-		setUsuario(udao.buscar(this.cedulaDATO));
-		System.out.println("ENCONTRO ESTO :"+udao.buscar(cedulaDATO));
+		setUsuario(udao.buscarPER(this.cedulaDATO));
+		System.out.println("ENCONTRO ESTO :"+udao.buscarPER(cedulaDATO));
 		return null;
 	}
 	
@@ -62,31 +63,31 @@ public class UsuarioControlador {
 	}
 	
 	public String buscarPER(String cedula) {
-		setUsuario(udao.buscar(cedula));
+		setUsuario(udao.buscarPER(cedula));
 		System.out.println("ENCONTRO ESTO :"+cedula);
-		System.out.println("ENCONTRO ESTO :"+udao.buscar(cedula));
+		System.out.println("ENCONTRO ESTO :"+udao.buscarPER(cedula));
 		return null;
 	}
 	public Usuario buscarapli(String cedula) {
-		Usuario u=udao.buscar(cedula);
+		Usuario u=udao.buscarPER(cedula);
 		return u;
 	}
 	
 
 	
 	public String actualizarp() {
-		udao.actualizar(usuario);
+		udao.actualizarp(usuario);
 		return null;
 	}
 	
 	
 	public String eliminar(String cedula) {
-		udao.eliminar(cedula);
+		udao.eliminarPersona(cedula);
 		return null;
 	}
 	
      public List<Usuario> mostrar(){
-  	    return udao.listaUsuario();
+  	    return udao.mostrarPersonas();
      }
 	
 

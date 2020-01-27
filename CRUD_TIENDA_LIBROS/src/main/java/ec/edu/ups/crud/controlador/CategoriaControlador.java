@@ -12,6 +12,7 @@ import ec.edu.ups.crud.datos.CategoriaDAO;
 import ec.edu.ups.crud.modelo.Autor;
 import ec.edu.ups.crud.modelo.Categoria;
 import ec.edu.ups.crud.modelo.Producto;
+import ec.edu.ups.negocios.Gestionbanco;
 
 
 @ManagedBean
@@ -22,7 +23,7 @@ public class CategoriaControlador {
 	private Categoria categoria;
 	
 	@Inject
-	private CategoriaDAO cdao;
+	private Gestionbanco cdao;
 	
 	@PostConstruct
 	private void init() {
@@ -46,42 +47,42 @@ public class CategoriaControlador {
 	}
 	
 
-	public CategoriaDAO getCdao() {
+	public Gestionbanco getCdao() {
 		return cdao;
 	}
 
-	public void setCdao(CategoriaDAO cdao) {
+	public void setCdao(Gestionbanco cdao) {
 		this.cdao = cdao;
 	}
 
 	
 	public String guardarCAT() {
-		cdao.insertar(categoria);
+		cdao.guardarCAT(categoria);
 		return null;
 	}
 
 	public String buscarCAT() {
-		setCategoria(cdao.buscar(this.idcategoria));
+		setCategoria(cdao.buscarCAT(this.idcategoria));
 		System.out.println(idcategoria);
-		System.out.println(cdao.buscar(this.idcategoria));
+		System.out.println(cdao.buscarCAT(this.idcategoria));
 		return null;
 	}
 	
 	public List<Categoria> mostrarCat(){
-  	    return cdao.listaCatgoria();
+  	    return cdao.mostrarCat();
      }
 	
 	public String eliminarCA(int id) {
-		cdao.eliminar(id);
+		cdao.eliminarCA(id);
 		return null;
 	}
 	
 	public String buscarCA(int id) {
-		setCategoria(cdao.buscar(id));
+		setCategoria(cdao.buscarCAT(id));
 		return null;
 	}
 	public String actualizarCA() {
-		cdao.actualizar(categoria);
+		cdao.actualizarCA(categoria);
 		return null;
 	}
 

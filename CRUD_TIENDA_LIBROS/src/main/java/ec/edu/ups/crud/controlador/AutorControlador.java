@@ -7,7 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 
-import ec.edu.ups.crud.datos.AutorDAO;
+import ec.edu.ups.negocios.*;
 import ec.edu.ups.crud.modelo.Autor;
 
 @ManagedBean
@@ -18,7 +18,7 @@ public class AutorControlador {
 	private Autor autor;
 	
 	@Inject
-	private AutorDAO adao;
+	private Gestionbanco adao;
 	
 	@PostConstruct
 	private void init() {
@@ -46,43 +46,43 @@ public class AutorControlador {
 	}
 
 
-	public AutorDAO getAdao() {
+	public Gestionbanco getAdao() {
 		return adao;
 	}
 
 
-	public void setAdao(AutorDAO adao) {
+	public void setAdao(Gestionbanco adao) {
 		this.adao = adao;
 	}
 
 
 	public String guardarAUT() {
-		adao.insertar(autor);
+		adao.guardarAUT(autor);
 		return null;
 	}
 	
 	public String buscarAUT() {
-		setAutor(adao.buscar(this.idAutor));
+		setAutor(adao.buscarAUT(this.idAutor));
 		System.out.println(idAutor);
-		System.out.println(adao.buscar(this.idAutor));
+		System.out.println(adao.buscarAUT(this.idAutor));
 		return null;
 	}
 	
 	public List<Autor> mostrarAu(){
-  	    return adao.listaAutor();
+  	    return adao.mostrarAu();
      }
 	
 	public String eliminarAu(int id) {
-		adao.eliminar(id);
+		adao.eliminarAu(id);
 		return null;
 	}
 	
 	public String buscarAu(int id) {
-		setAutor(adao.buscar(id));
+		setAutor(adao.buscarAUT(id));
 		return null;
 	}
 	public String actualizarAU() {
-		adao.actualizar(autor);
+		adao.actualizarAU(autor);
 		return null;
 	}
 

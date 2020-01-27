@@ -48,7 +48,7 @@ public class Usuario {
 	private int numero_compras;
 	
 	@Column(name="usu_monto_compras")
-	private int monto_compras;
+	private double monto_compras;
 	
 	@Column(name="usu_direccion_vivienda")
 	private String direccion_vivienda;
@@ -58,23 +58,23 @@ public class Usuario {
 	
 	@Column(name="usu_imagen")
 	private String URL;
-	/*
+	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario_tarjeta_FK", referencedColumnName = "usu_cedula")
+	@JoinColumn(name = "id_usuario_FK", referencedColumnName = "usu_cedula")
 	private List<Tarjeta> tarjeta;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario_cabecera_FK", referencedColumnName = "usu_cedula")
+	@JoinColumn(name = "id_usuario_FK", referencedColumnName = "usu_cedula")
 	private List<FACT_Cabecera> cabecera;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario_direccion_FK", referencedColumnName = "usu_cedula")
+	@JoinColumn(name = "id_usuario_FK", referencedColumnName = "usu_cedula")
 	private List<Direccion> direccion;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario_carrito_FK", referencedColumnName = "usu_cedula")
+	@JoinColumn(name = "id_usuario_FK", referencedColumnName = "usu_cedula")
 	private List<Carrito> carrito;
-*/
+
 
 	public String getCedula() {
 		return cedula;
@@ -146,11 +146,11 @@ public class Usuario {
 		this.numero_compras = numero_compras;
 	}
 
-	public int getMonto_compras() {
+	public double getMonto_compras() {
 		return monto_compras;
 	}
 
-	public void setMonto_compras(int monto_compras) {
+	public void setMonto_compras(double monto_compras) {
 		this.monto_compras = monto_compras;
 	}
 

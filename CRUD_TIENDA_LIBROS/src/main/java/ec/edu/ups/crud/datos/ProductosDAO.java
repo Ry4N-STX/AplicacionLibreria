@@ -19,6 +19,7 @@ public class ProductosDAO {
 		em.persist(pro);
 	}
 	
+	
 	public void actualizar(Producto pro) {
 		em.merge(pro);
 	}
@@ -33,6 +34,11 @@ public class ProductosDAO {
 	
 	public List<Producto> listaProductos(){
 		Query query= em.createQuery("SELECT P FROM LIB_PRODUCTO P",Producto.class);
+		return query.getResultList();
+	}
+	
+	public List<Producto> listaProductosporOdren(){
+		Query query= em.createQuery("SELECT P FROM LIB_PRODUCTO P ORDER BY P.pro_cantidad_vendidos",Producto.class);
 		return query.getResultList();
 	}
 	
