@@ -19,6 +19,7 @@ public class ProductosDAO {
 		em.persist(pro);
 	}
 	
+	
 	public void actualizar(Producto pro) {
 		em.merge(pro);
 	}
