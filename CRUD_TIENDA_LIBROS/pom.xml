@@ -161,10 +161,7 @@
     <artifactId>postgresql</artifactId>
     <version>9.3-1100-jdbc41</version>
 </dependency>
-        
-        
-        
-
+    
         <!-- Now we declare any tools needed -->
 
         <!-- Annotation processor to generate the JPA 2.0 metamodel classes for 

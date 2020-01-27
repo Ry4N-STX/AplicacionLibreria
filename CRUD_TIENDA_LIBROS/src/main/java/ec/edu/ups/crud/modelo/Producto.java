@@ -22,16 +22,16 @@ public class Producto {
 	@Column(name="pro_ISBN", length = 10)
 	private String ISBN;
 	
-	@Column(name="pro_nombre", length = 10)
+	@Column(name="pro_nombre", length = 200)
 	private String nombre;
 	
-	@Column(name="pro_editorial", length = 10)
+	@Column(name="pro_editorial", length = 200)
 	private String editorial;
 	
-	@Column(name="pro_anio_publicacion", length = 10)
+	@Column(name="pro_anio_publicacion", length = 200)
 	private int anio_publicacion;
 	
-	@Column(name="pro_link", length = 100)
+	@Column(name="pro_link", length = 200)
 	private String link;
 	
 	@Column(name="pro_descripcion", length = 500)
