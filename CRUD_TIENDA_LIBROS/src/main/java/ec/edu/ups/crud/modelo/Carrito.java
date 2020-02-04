@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="LIB_CARRITO")
 @Table(name="LIB_CARRITO")
 public class Carrito {
 	@Id

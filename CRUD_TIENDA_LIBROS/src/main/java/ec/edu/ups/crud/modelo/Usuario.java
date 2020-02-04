@@ -34,8 +34,8 @@ public class Usuario {
 	@Column(name="usu_email")
 	private String email;
 	
-	@Column(name="usu_telefono", length = 9)
-	private int telefono;
+	@Column(name="usu_telefono")
+	private String telefono;
 	
 	@Column(name="usu_fecha_nacimiento")
 	//@Temporal(TemporalType.DATE)
@@ -114,11 +114,11 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

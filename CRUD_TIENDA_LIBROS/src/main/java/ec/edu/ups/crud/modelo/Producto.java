@@ -29,7 +29,7 @@ public class Producto {
 	private String editorial;
 	
 	@Column(name="pro_anio_publicacion", length = 200)
-	private int anio_publicacion;
+	private String anio_publicacion;
 	
 	@Column(name="pro_link", length = 200)
 	private String link;
@@ -88,11 +88,11 @@ public class Producto {
 		this.editorial = editorial;
 	}
 
-	public int getAnio_publicacion() {
+	public String getAnio_publicacion() {
 		return anio_publicacion;
 	}
 
-	public void setAnio_publicacion(int anio_publicacion) {
+	public void setAnio_publicacion(String anio_publicacion) {
 		this.anio_publicacion = anio_publicacion;
 	}
 

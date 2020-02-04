@@ -127,26 +127,27 @@ if(us.getPassword().equals(u1.getPassword())){
 @Path("/listacarritousuario")
 @Produces("application/json")
 @Consumes("application/json")
-public List<Carrito> listavcarrito(String CI){
-	return gtio.listaCarritoUsuario(CI);
+public List<Carrito> listavcarrito(Carrito c){
+	return gtio.listaCarritoUsuario(c.getId_usuario_FK());
 }
 
 
 @GET
 @Path("/listapruieba")
 @Produces("application/json")
-	public List<Carrito> getcarrito(){
-		return gtio.listaCarritoUsuario("1600537029");
+	public List<FACT_Cabecera> getfacabe(){
+		return gtio.mostrarFac_Cabecera();
 	}
 
 @POST
 @Path("/agregaralcarrito")
 @Produces("application/json")
 @Consumes("application/json")
-public respues ingresarcarrito(String ISBN){
+public respues ingresarcarrito(Carrito ca){
+	
 	respues r=new respues();
 	try {
-		String mn=gtio.guardarCarrito(ISBN,"1600537029");
+		String mn=gtio.guardarCarrito(ca.getId_prod_carrito_FK(),ca.getId_usuario_FK());
 		r.setId(1);
 		r.setMensaje(mn);
 		
@@ -163,10 +164,10 @@ public respues ingresarcarrito(String ISBN){
 @Path("/eliminararticulo")
 @Produces("application/json")
 @Consumes("application/json")
-public respues borarcarrito(int cod){
+public respues borarcarrito(Carrito ca){
 	respues r=new respues();
 	try {
-		String mn=gtio.eliminararticulo(cod);
+		String mn=gtio.eliminararticulo(ca.getIdCarrito());
 		r.setId(1);
 		r.setMensaje(mn);
 		
@@ -183,10 +184,10 @@ public respues borarcarrito(int cod){
 @Path("/generarfactura")
 @Produces("application/json")
 @Consumes("application/json")
-public respues generarfactura(String CI){
+public respues generarfactura(Carrito c){
 	respues r=new respues();
 	try {
-		String mn=gtio.generarCompra(CI);
+		String mn=gtio.generarCompra(c.getId_usuario_FK());
 		r.setId(1);
 		r.setMensaje(mn);
 		
@@ -197,6 +198,17 @@ public respues generarfactura(String CI){
 	}
 	return r;
 }
+
+
+@POST
+@Path("/buscarproducto")
+@Produces("application/json")
+@Consumes("application/json")
+public Producto buscarproducto(String ISBN){
+	Producto p=gtio.buscarPRO(ISBN);
+	return p;
+}
+
 
 
 

@@ -106,7 +106,6 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-        
       </li>
       <li class="nav-item">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
@@ -115,7 +114,6 @@
       </li>
     </ul>
   </nav>
-   </div>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -137,7 +135,7 @@
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"></img>
         </div>
         <div class="info">
-          <a href="#" class="d-block">BRYAM CHIMBO</a>
+          <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -151,7 +149,7 @@
             <a href="#" class="nav-link">
             
               <i class="nav-icon fas fa-tachometer-alt">
-              BIRD BOOK 
+              Reporte de Ventas
               </i>
          
             </a>
@@ -170,7 +168,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>LIBRERIA ONLINE</h1>
+            <h1>REPORTE DE VENTAS</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -188,30 +186,73 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">MANTENIMIENTO GENERAL</h3>
+              <h3 class="card-title">REPORTE</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="card-footer">
-<h:form>
-<h:panelGrid columns="3">
-<h:commandButton class="btn btn-primary" action="crearPRODUCTO" value="PRODUCTO"></h:commandButton>
-<h:commandButton class="btn btn-primary" action="crearCATEGORIA" value="CATEGORIA"></h:commandButton>
-<h:commandButton class="btn btn-primary" action="crearAUTOR" value="AUTORES"></h:commandButton>
-<h:commandButton class="btn btn-primary" action="crearUSU" value="USUARIOS"></h:commandButton>
-<h:commandButton class="btn btn-primary" action="reporte" value="Reporte"></h:commandButton>
-  
- </h:panelGrid>
- </h:form>  
- </div>
-
-       
+              
+ <h:form>
+<h:dataTable value="#{productoControlado.mostrarrepor()}" var="pr" class="table table-bordered table-striped">
+<h:column>
+<f:facet name="header" value="ISBN">CANTIDAD VENDIDOS</f:facet>
+#{pr.cantidad_vendidos}
+</h:column>
+<h:column>
+<f:facet name="header" value="ISBN">ISBN</f:facet>
+#{pr.ISBN}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{pr.nombre}
+</h:column>
+<h:column>
+<f:facet name="header" value="Editorial">Editorial</f:facet>
+#{pr.editorial}
+</h:column>
+<h:column>
+<f:facet name="header" value="Año Publicacion">Anio Publicacion</f:facet>
+#{pr.anio_publicacion}
+</h:column>
+<h:column>
+<f:facet name="header" value="Precio">Precio</f:facet>
+#{pr.precio}
+</h:column>
+<h:column>
+<f:facet name="header" value="Stock">Stock</f:facet>
+#{pr.stock}
+</h:column>
+<h:column>
+<f:facet name="header" value="Likes">Likes</f:facet>
+#{pr.likes}
+</h:column>
+<h:column>
+<f:facet name="header" value="Categoria">ID Categoria</f:facet>
+#{pr.id_cat_producto_FK}
+</h:column>
+<h:column>
+<f:facet name="header" value="Autor">ID Autor</f:facet>
+#{pr.id_aut_producto_FK}
+</h:column>
+</h:dataTable>
+</h:form>                
+              
+              
+              
             </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
 
-
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"></h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+  
+            </div>
+            <!-- /.card-body -->
+          </div>
           <!-- /.card -->
         </div>
         <!-- /.col -->
@@ -233,7 +274,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->

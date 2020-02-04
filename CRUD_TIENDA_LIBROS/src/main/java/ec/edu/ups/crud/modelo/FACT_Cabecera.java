@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
+@Entity(name="LIB_FACT_CABECERA")
 @Table(name="LIB_FACT_CABECERA")
 public class FACT_Cabecera {
 	
@@ -39,7 +39,10 @@ public class FACT_Cabecera {
 	@Column(name="id_cabecera_tarjeta_FK" , length = 10)
 	private int id_cabecera_tarjeta_FK;
 	
-	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@Column(name="id_cabecera_direccion_FK" , length = 10)
+	private int id_cabecera_direccion_FK;
+	
+	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "cabe_detalle_FK", referencedColumnName = "fac_cab_id")
 	private List<FACT_Detalle> detalle;
 
@@ -99,12 +102,24 @@ public class FACT_Cabecera {
 		this.detalle = detalle;
 	}
 
+	public int getId_cabecera_direccion_FK() {
+		return id_cabecera_direccion_FK;
+	}
+
+	public void setId_cabecera_direccion_FK(int id_cabecera_direccion_FK) {
+		this.id_cabecera_direccion_FK = id_cabecera_direccion_FK;
+	}
+
 	@Override
 	public String toString() {
 		return "FACT_Cabecera [IdFactCabecera=" + IdFactCabecera + ", fecha_factura=" + fecha_factura + ", total="
 				+ total + ", iva=" + iva + ", id_usuario_FK=" + id_usuario_FK + ", id_cabecera_tarjeta_FK="
-				+ id_cabecera_tarjeta_FK + ", detalle=" + detalle + "]";
+				+ id_cabecera_tarjeta_FK + ", id_cabecera_direccion_FK=" + id_cabecera_direccion_FK + "]";
 	}
+
+	
+
+	
 
 
 

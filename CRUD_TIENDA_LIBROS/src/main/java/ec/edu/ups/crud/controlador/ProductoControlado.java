@@ -105,5 +105,7 @@ public class ProductoControlado {
 	}
 
 	
-	
+	public List<Producto> mostrarrepor(){
+  	    return pdao.mostrarProRepor();
+     }
 }

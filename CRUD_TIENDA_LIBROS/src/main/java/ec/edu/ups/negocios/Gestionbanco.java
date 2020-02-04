@@ -278,7 +278,8 @@ public class Gestionbanco {
 //////////////compra
                     
                     public String guardarCarrito(String ISBN,String ci) {
-                   		Producto pr=prodao.buscar(ISBN);
+                   		
+                    	Producto pr=prodao.buscar(ISBN);
                    		Carrito c= new Carrito();
                    		c.setCantidad(1);
                    		c.setId_prod_carrito_FK(ISBN);
@@ -305,13 +306,16 @@ public class Gestionbanco {
                 
                 public void generardatalles(String CI,int codfac) {
                 	List<Carrito> c= cadao.listaCarritoUsuario(CI);
+                	System.out.println("llea asta aqui 2");
                 	for(Carrito ca: c){
+                		System.out.println("llea asta aqui 3: "+ca.getIdCarrito());
                 		FACT_Detalle fad=new FACT_Detalle();
                 		fad.setCabe_detalle_FK(codfac);
                 		fad.setCantidad(ca.getCantidad());
                 		fad.setIdFactDetalle(ca.getIdCarrito());
                 		fad.setTotal(ca.getTotal());
                 		fad.setId_prod_detalle_FK(ca.getId_prod_carrito_FK());
+                		System.out.println("llea asta aqui 4: "+codfac);
                 		factdedao.insertar(fad);
                 	}
                 }
@@ -329,6 +333,7 @@ public class Gestionbanco {
                 
                 public void numerocomprasmonto(String CI, double total){
                 	Usuario u = usudao.buscar(CI);
+                	System.out.println("llea asta aqui: ");
                 	int ncom=u.getNumero_compras();
                 	u.setNumero_compras(ncom+1);
                 	double mcom=u.getMonto_compras();
@@ -379,13 +384,17 @@ public class Gestionbanco {
                 	 fc.setIva(0.14*calculartotal(CI));
                 	 fc.setTotal(calculartotal(CI)+fc.getIva());
                 	 fc.setId_cabecera_tarjeta_FK(1);
-                	 generardatalles(CI, fc.getIdFactCabecera());
+                	 fc.setId_cabecera_direccion_FK(1);
+                	 factcadao.insertar(fc); 
+                	generardatalles(CI, fc.getIdFactCabecera());
                 	 cambiarstock_numeroventas(CI, idfac);
-                	 numerocomprasmonto(CI, fc.getTotal());
+                	 numerocomprasmonto(fc.getId_usuario_FK(), fc.getTotal());
                 	 vaciarCarrito(CI);
                 	 return "compra registrada";
                  }
                 
-                
+             	public List<Producto> mostrarProRepor(){
+              	    return prodao.listaProductosporOdren();
+                 }
 	
 }

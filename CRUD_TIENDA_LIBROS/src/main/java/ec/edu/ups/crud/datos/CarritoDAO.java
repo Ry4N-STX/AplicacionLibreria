@@ -40,9 +40,8 @@ public class CarritoDAO {
 	}
 	
 	public List<Carrito> listaCarritoUsuario(String cedula){
-		String jpql="SELECT C FROM LIB_CARRITO C WHERE C.id_usuario_FK = ?1";
+		String jpql="SELECT C FROM LIB_CARRITO C WHERE C.id_usuario_FK = '"+cedula+"'";
 		Query query= em.createQuery(jpql,Carrito.class); 
-		query.setParameter(1, cedula);
 		return query.getResultList();
 	}
 }

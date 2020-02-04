@@ -7,12 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="LIB_FACT_Detalle")
 @Table(name="LIB_FACT_Detalle")
 public class FACT_Detalle {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="factdetalle_id")
 	private int IdFactDetalle;
 	
