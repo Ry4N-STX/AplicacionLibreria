@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+<html >
 <head>
   <meta charset="utf-8"></meta>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
@@ -22,9 +19,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"></link>
 </head>
 <body class="hold-transition sidebar-mini">
-
 <div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -36,14 +31,14 @@
         <a href="../../index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-
+      
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        
+       
         <div class="input-group-append">
         </div>
       </div>
@@ -53,22 +48,53 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
+
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
-          
+            <div class="media">
+              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"></img>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
-         
+            <div class="media">
+              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3"></img>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
-           
+            <div class="media">
+              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3"></img>
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
@@ -103,6 +129,7 @@
         </div>
       </li>
       <li class="nav-item">
+
       </li>
     </ul>
   </nav>
@@ -112,11 +139,11 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="https://lh3.googleusercontent.com/tyDfNheSfjUEOzfdqZ2qP3_MIK4jHKKwnVzmqObd9ErpL1B1XRaZqSjtd3gRbXXnayK3Mg=s95"
+      <img src="../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8"></img>
-      <span class="brand-text font-weight-light">B I R D B O O K</span>
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
     <!-- Sidebar -->
@@ -124,10 +151,10 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="https://img2.freepng.es/20181117/rr/kisspng-logo-user-viva-life-style-information-design-5bf0a6a16b8413.8854598315424979534404.jpg" class="img-circle elevation-2" alt="User Image"></img>
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"></img>
         </div>
         <div class="info">
-          <a href="#" class="d-block">Administrador Bryam</a>
+          <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -274,20 +301,19 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content <div class="row">
-        <div class="col-20"></div>   -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
- 
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>CATEGORIAS</h1>
+            <h1>DataTables</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
+ 
             </ol>
           </div>
         </div>
@@ -297,42 +323,71 @@
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-xl">
+        <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Añadir Nueva</h3>
+              <h3 class="card-title">LISTA</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            
-                         
-  <h:form>
-<h:panelGrid columns="3">
-<h:outputLabel value="ID CATEGORIA:" for="idcat" />
-<h:inputText class="form-control" value="#{categoriaControlador.categoria.idCategoria}" id="idcat"/>
-<h:message for="idcat"/>
+         
+     
 
-<h:outputLabel value="Nombre Categoria:" for="nombreC"/>
-<h:inputText class="form-control" value="#{categoriaControlador.categoria.nombre}" id="nombreC"/>
-<h:message for="nombreC"/>
 
-<div class="card-footer">
-<h:commandButton class="btn btn-primary" action="#{categoriaControlador.guardarCAT()}" value="Guardar" />
-<h:commandButton class="btn btn-primary" action="LISTCateoria" value="Lista Categoria"></h:commandButton>
-<h:commandButton  class="btn btn-primary" action="INICIO" value="Regresar al Inicio"></h:commandButton>
-</div>
-</h:panelGrid>
-</h:form>
+
+
+
+                </tbody>
+                <tfoot>
+                </tfoot>
+              </table>
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+           
             
+            
+           
               
-                  
- 
+              
+              
+              
+              
+              
+              
             </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
 
-          
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Actualizar</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              
+            </div>
+            <!-- /.card-body -->
+          </div>
           <!-- /.card -->
         </div>
         <!-- /.col -->
@@ -341,13 +396,15 @@
     </section>
     <!-- /.content -->
   </div>
-
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.1
     </div>
-    
+     <!-- /.content-wrapper 
+    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    reserved.
+    -->
   </footer>
 
   <!-- Control Sidebar -->
@@ -355,9 +412,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-  
-  </div>
-
+</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->
