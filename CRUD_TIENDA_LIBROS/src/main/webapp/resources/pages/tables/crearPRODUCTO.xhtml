@@ -163,13 +163,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/tables/LISTUsuarios.xhtml" class="nav-link">
+                <a href="LISTUsuarios.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-align-center"></i>
                   <p>Lista Clientes</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="crearUSU.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-male"></i>
                   <p>Añadir Nuevo</p>
                 </a>
@@ -198,25 +198,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="LISTProductos.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-align-center"></i>
                   <p>Listado Productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="crearPRODUCTO.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-store"></i>
                   <p>Añadir Nuevo</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="crearCATEGORIA.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-feather"></i>
                   <p>Categorias</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="crearAUTOR.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-award"></i>
                   <p>Autores</p>
                 </a>
@@ -233,13 +233,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/UI/general.html" class="nav-link">
+                <a href="reporte.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-map"></i>
                   <p>Reporte Productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+                <a href="reporte2.xhtml" class="nav-link">
                   <i class="nav-icon fas fa-trophy"></i>
                   <p>Reporte Clientes</p>
                 </a>
@@ -304,8 +304,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            
-                         
+                        
  <h:form>
 <h:panelGrid columns="3">
 
@@ -340,7 +339,7 @@
 <h:outputLabel value="Imagen:" for="img"/>
 <h:inputText class="form-control" value="#{productoControlado.producto.link}" id="img"/>
 <h:message for="img"/>
-
+<!-- /.container-fluid 
 <h:outputLabel value="Categorias" for="cat"/>
 <h:inputText class="form-control" value="#{productoControlado.producto.id_cat_producto_FK}" id="cat"/>
 <h:message for="cat"/>
@@ -348,6 +347,21 @@
 <h:outputLabel value="Autor" for="aut"/>
 <h:inputText class="form-control" value="#{productoControlado.producto.id_aut_producto_FK}" id="aut"/>
 <h:message for="aut"/>
+-->
+<div class="card-footer">
+<h:outputLabel for="aut" value="Autor: " />
+        <h:selectOneMenu id="aut" value="#{productoControlado.producto.id_aut_producto_FK}" effect="fold" editable="true">
+            <f:selectItem itemLabel="Seleccione Autor" itemValue="" />
+            <f:selectItems value="#{autorControlador.mostrarAutor()}"/>
+        </h:selectOneMenu>
+</div>
+
+ <h:outputLabel for="cat" value="Categoria: " />
+        <h:selectOneMenu id="cat" value="#{productoControlado.producto.id_cat_producto_FK}" effect="fold" editable="true">
+            <f:selectItem itemLabel="Seleccione Categoria" itemValue="" />
+            <f:selectItems value="#{categoriaControlador.mostrarDT2()}"/>
+        </h:selectOneMenu>
+
 
 <div class="card-footer">
 <h:commandButton class="btn btn-primary" action="#{productoControlado.guardarProducto()}" value="Guardar" />
@@ -356,11 +370,10 @@
 </div>
 </h:panelGrid>
 </h:form>  
-
  <div >
   <h:panelGrid columns="3">          
  <h:form>
- 
+
  <H3>AUTORES REGISTRADAS</H3>  
 <h:dataTable value="#{autorControlador.mostrarAu()}" var="aut" class="table table-bordered table-striped">
 <h:column>

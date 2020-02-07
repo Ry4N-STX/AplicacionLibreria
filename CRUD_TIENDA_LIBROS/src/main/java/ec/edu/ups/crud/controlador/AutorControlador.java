@@ -1,5 +1,6 @@
 package ec.edu.ups.crud.controlador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +10,7 @@ import javax.inject.Inject;
 
 import ec.edu.ups.negocios.*;
 import ec.edu.ups.crud.modelo.Autor;
+import ec.edu.ups.crud.modelo.Categoria;
 
 @ManagedBean
 @ViewScoped
@@ -25,6 +27,15 @@ public class AutorControlador {
 	autor=new Autor();
 	}
 	
+	public List<Categoria> mostrarAutor(){
+		List<Autor> li=adao.mostrarAu();
+		List list = new ArrayList(li.size());
+		int cont=0;
+		for (Autor a :li) {
+			list.add(a.getIdAutor());
+		}
+   	    return list;
+      }
 	
 	public int getIdAutor() {
 		return idAutor;

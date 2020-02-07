@@ -1,5 +1,6 @@
 package ec.edu.ups.crud.controlador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -71,6 +72,27 @@ public class CategoriaControlador {
 	public List<Categoria> mostrarCat(){
   	    return cdao.mostrarCat();
      }
+	
+	public List<Categoria> mostrarDT(){
+		List<Categoria> li=cdao.mostrarCat();
+		List list = new ArrayList(li.size());
+		int cont=0;
+		for (Categoria c :li) {
+			list.add(c.getIdCategoria());
+		}
+   	    return list;
+      }
+	
+	
+	public List<Categoria> mostrarDT2(){
+		List<Categoria> li=cdao.mostrarCat();
+		List list = new ArrayList(li.size());
+		int cont=0;
+		for (Categoria c :li) {
+			list.add(c.getIdCategoria());
+		}
+   	    return list;
+      }
 	
 	public String eliminarCA(int id) {
 		cdao.eliminarCA(id);
