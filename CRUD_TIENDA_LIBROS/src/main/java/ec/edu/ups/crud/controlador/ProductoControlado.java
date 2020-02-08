@@ -59,23 +59,6 @@ public class ProductoControlado {
 	};
 
 
-	//private List<Producto> listp =pdao.mostrarProRepor();
-	//public void createPieModel() {
-	//	pieModel = new PieChartModel();
-	//	for (int i = 0; i < listp.size(); i++) {
-	//		pieModel.set(listp.get(i).getNombre(),i);
-	//	}
-	//	pieModel.setTitle("mas vendidos");
-	//	pieModel.setLegendPosition("c");
-   // }
-//
-	//public List<Producto> getListp() {
-	//	return listp;
-	//}
-
-	//public void setListp(List<Producto> listp) {
-	//	this.listp = listp;
-	//}
 
 	public String getISBNP() {
 		return ISBNP;
