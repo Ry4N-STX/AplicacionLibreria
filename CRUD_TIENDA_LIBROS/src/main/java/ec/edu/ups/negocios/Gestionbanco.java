@@ -287,7 +287,7 @@ public class Gestionbanco {
 						}   	
                     }
                     
-                    public String guardarCarrito(String ISBN,String ci,int idcarr) {
+                    public String guardarCarrito(String ISBN,String ci,int idcarr,int cant) {
                    		boolean ce=carritoexis(idcarr);
                    		if (ce) {
 							Carrito c=cadao.buscar(idcarr);
