@@ -292,20 +292,30 @@ public class Gestionbanco {
                    		if (ce) {
 							Carrito c=cadao.buscar(idcarr);
 							Producto pr=prodao.buscar(ISBN);
-							int canti=c.getCantidad();
-							c.setCantidad(canti+1);
-							c.setTotal((double)c.getCantidad()*pr.getPrecio());
-							cadao.actualizar(c);
-							return "insertado";
+							if((pr.getStock()-cant)>=0) {
+								int canti=c.getCantidad();
+								c.setCantidad(canti+1);
+								c.setTotal((double)c.getCantidad()*pr.getPrecio());
+								cadao.actualizar(c);
+								return "insertado";
+							}else {
+								return "No existe el stock";
+							}	
+							
 						}else {
 							Producto pr=prodao.buscar(ISBN);
-	                   		Carrito c= new Carrito();
-	                   		c.setCantidad(1);
-	                   		c.setId_prod_carrito_FK(ISBN);
-	                   		c.setId_usuario_FK(ci);
-	                   		c.setTotal(pr.getPrecio());
-	                    	cadao.insertar(c);
-	                   		return "insertado";
+							if((pr.getStock()-cant)>=0) {
+								Carrito c= new Carrito();
+		                   		c.setCantidad(cant);
+		                   		c.setId_prod_carrito_FK(ISBN);
+		                   		c.setId_usuario_FK(ci);
+		                   		c.setTotal((double)c.getCantidad()*pr.getPrecio());
+		                    	cadao.insertar(c);
+		                   		return "insertado";
+							}else {
+								return "No existe el stock";
+							}
+	                   	
 						}
                     	
                    	}   
