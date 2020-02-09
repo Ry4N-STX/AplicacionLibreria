@@ -290,7 +290,6 @@ public class Gestionbanco {
                     public String guardarCarrito(String ISBN,String ci,int idcarr,int cant) {
                    		boolean ce=carritoexis(idcarr);
                    		if (ce) { 
-                   			
 							Carrito c=cadao.buscar(idcarr);
 							Producto pr=prodao.buscar(ISBN);
 							if((pr.getStock()-cant)>=0) {
