@@ -63,6 +63,10 @@ public class Producto {
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_prod_carrito_FK", referencedColumnName = "pro_ISBN")
 	private List<Carrito> carrito;
+	
+	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "idPr", referencedColumnName = "pro_ISBN")
+	private List<Votoproducto> votos;
 
 	public String getISBN() {
 		return ISBN;

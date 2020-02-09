@@ -74,7 +74,10 @@ public class Usuario {
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_usuario_FK", referencedColumnName = "usu_cedula")
 	private List<Carrito> carrito;
-
+	
+	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "idUsu", referencedColumnName = "usu_cedula")
+	private List<Votoproducto> votos;
 
 	public String getCedula() {
 		return cedula;

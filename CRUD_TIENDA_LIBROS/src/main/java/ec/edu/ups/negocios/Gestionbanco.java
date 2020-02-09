@@ -29,6 +29,8 @@ public class Gestionbanco {
 	private TarjetaDAO tardao;
 	@Inject
 	private UsuarioDAO usudao;
+	@Inject
+	private VotoDAO votdao;
 	
 	/////////Autor
 	
@@ -395,6 +397,51 @@ public class Gestionbanco {
                 
              	public List<Producto> mostrarProRepor(){
               	    return prodao.listaProductosporOdren();
-                 }
+                 }	
 	
+             	public boolean votar(String CI,String isbn, int estado) {
+             		boolean vpr=votdao.votprev(CI, isbn);
+             		if(vpr) {
+             			Votoproducto v=votdao.buscarvot(CI, isbn);
+             			Producto p=prodao.buscar(isbn);
+             			if (v.getEstado()==1) {
+             				v.setEstado(0);
+             				int na=p.getLikes();
+             				p.setLikes(na-1);
+             				prodao.actualizar(p);
+             				votdao.actualizar(v);
+             				return true;
+						}
+             			if (v.getEstado()==0) {
+             				v.setEstado(1);
+             				int na=p.getLikes();
+             				p.setLikes(na+1);
+             				prodao.actualizar(p);
+             				votdao.actualizar(v);
+             				return true;
+						}
+   			
+             		}else {
+             			Votoproducto v1=new Votoproducto();
+             			Producto p=prodao.buscar(isbn);
+             			v1.setEstado(1);
+             			v1.setIdPr(isbn);
+             			v1.setIsUsu(CI);
+             			int na=p.getLikes();
+         				p.setLikes(na+1);
+         				prodao.actualizar(p);
+             			votdao.insertar(v1);
+             		return true;	
+					}  		
+             		return false;
+             	}
+             	
+             	public String insertardirec(Direccion d) {
+             		dirdao.insertar(d);
+             		return "direccion reistrada";
+             	}
+             	public String insertartarj(Tarjeta j) {
+             		tardao.insertar(j);
+             		return "tarjeta reistrada";
+             	}
 }

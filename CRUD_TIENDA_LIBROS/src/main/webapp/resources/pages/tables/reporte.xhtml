@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css"></link>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"></link>
+ 
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -351,18 +352,11 @@
 </h:column>
 </h:dataTable>
 </h:form>
-
-<div>
-<canvas><p:chart type="pie" model="#{reportesBean.pieModel}" style="width:400px;height:450px"></p:chart></canvas>
-</div>  
-
-<div class="card-body">
-                <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
- 
-             
-             
- 
+<h:form>
+<h:panelGrid columns="3">
+<h:commandButton class="btn btn-primary" action="repo" value="Reporte"></h:commandButton>
+ </h:panelGrid>
+ </h:form> 
             </div>
             <!-- /.card-body -->
           </div>

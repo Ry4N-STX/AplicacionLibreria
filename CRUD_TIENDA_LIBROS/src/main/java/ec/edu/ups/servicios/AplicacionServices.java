@@ -8,6 +8,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 import ec.edu.ups.crud.controlador.CategoriaControlador;
 import ec.edu.ups.crud.controlador.ProductoControlado;
@@ -209,10 +210,51 @@ public Producto buscarproducto(String ISBN){
 	return p;
 }
 
+@GET
+@Path("/votar")
+@Produces("application/json")
+	public boolean votarpro(@QueryParam("cedula") String CI,@QueryParam("isbn") String isbn,@QueryParam("estado") int estado){
+		return gtio.votar(CI, isbn, estado);
+	}
 
 
+@POST
+@Path("/ingresardir")
+@Produces("application/json")
+@Consumes("application/json")
+	public respues IngresarDir(Direccion dir){
+	respues r=new respues();
+	try {
+		String mn=gtio.insertardirec(dir);
+		r.setId(1);
+		r.setMensaje(mn);
+		
+	} catch (Exception e) {
+		r.setId(99);
+		r.setMensaje("error al insertar");
+		
+	}
+	return r;
+	}
 
-
+@POST
+@Path("/ingresartar")
+@Produces("application/json")
+@Consumes("application/json")
+	public respues IngresarTarj(Tarjeta tar){
+	respues r=new respues();
+	try {
+		String mn=gtio.insertartarj(tar);
+		r.setId(1);
+		r.setMensaje(mn);
+		
+	} catch (Exception e) {
+		r.setId(99);
+		r.setMensaje("error al insertar");
+		
+	}
+	return r;
+	}
 }
 
 

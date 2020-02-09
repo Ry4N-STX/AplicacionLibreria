@@ -33,6 +33,11 @@ public class CarritoDAO {
 	 return em.find(Carrito.class, ca);  
     }
 	
+	public List<Carrito> listaCarritoprueba(int id){
+		String jpql="SELECT C FROM LIB_CARRITO C WHERE C.car_id = "+id;
+		Query query= em.createQuery(jpql,Carrito.class); 
+		return query.getResultList();
+	}
 	
 	public List<Carrito> listaCarrito(){
 		Query query= em.createQuery("SELECT C FROM LIB_CARRITO C",Carrito.class);
