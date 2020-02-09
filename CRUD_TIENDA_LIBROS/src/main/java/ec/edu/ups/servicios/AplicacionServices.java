@@ -148,7 +148,7 @@ public respues ingresarcarrito(Carrito ca){
 	
 	respues r=new respues();
 	try {
-		String mn=gtio.guardarCarrito(ca.getId_prod_carrito_FK(),ca.getId_usuario_FK());
+		String mn=gtio.guardarCarrito(ca.getId_prod_carrito_FK(),ca.getId_usuario_FK(),	ca.getIdCarrito());
 		r.setId(1);
 		r.setMensaje(mn);
 		

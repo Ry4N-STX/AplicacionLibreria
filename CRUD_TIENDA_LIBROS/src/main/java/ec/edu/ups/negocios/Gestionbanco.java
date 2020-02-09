@@ -278,17 +278,36 @@ public class Gestionbanco {
                  	    return dirdao.listaDireccion();
                     }       
 //////////////compra
+                    public boolean carritoexis(int idcarr) {
+                    	List<Carrito> c=cadao.listaCarritoprueba(idcarr);
+                    	if(c.isEmpty()) {
+                    		return false;
+                    	}else {
+							return true;
+						}   	
+                    }
                     
-                    public String guardarCarrito(String ISBN,String ci) {
-                   		
-                    	Producto pr=prodao.buscar(ISBN);
-                   		Carrito c= new Carrito();
-                   		c.setCantidad(1);
-                   		c.setId_prod_carrito_FK(ISBN);
-                   		c.setId_usuario_FK(ci);
-                   		c.setTotal(pr.getPrecio() );
-                    	cadao.insertar(c);
-                   		return "insertado";
+                    public String guardarCarrito(String ISBN,String ci,int idcarr) {
+                   		boolean ce=carritoexis(idcarr);
+                   		if (ce) {
+							Carrito c=cadao.buscar(idcarr);
+							Producto pr=prodao.buscar(ISBN);
+							int canti=c.getCantidad();
+							c.setCantidad(canti+1);
+							c.setTotal((double)c.getCantidad()*pr.getPrecio());
+							cadao.actualizar(c);
+							return "insertado";
+						}else {
+							Producto pr=prodao.buscar(ISBN);
+	                   		Carrito c= new Carrito();
+	                   		c.setCantidad(1);
+	                   		c.setId_prod_carrito_FK(ISBN);
+	                   		c.setId_usuario_FK(ci);
+	                   		c.setTotal(pr.getPrecio());
+	                    	cadao.insertar(c);
+	                   		return "insertado";
+						}
+                    	
                    	}   
                     
                     
