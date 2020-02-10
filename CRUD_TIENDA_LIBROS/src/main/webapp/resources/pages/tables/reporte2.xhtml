@@ -310,46 +310,65 @@
             
                          
   <h:form>
-<h:dataTable value="#{productoControlado.mostrarrepor()}" var="pr" class="table table-bordered table-striped">
+<h:dataTable value="#{usuarioControlador.mostrarreporteMonto()}" var="pr" class="table table-bordered table-striped">
 <h:column>
-<f:facet name="header" value="ISBN">CANTIDAD VENDIDOS</f:facet>
-#{pr.cantidad_vendidos}
-</h:column>
-<h:column>
-<f:facet name="header" value="ISBN">ISBN</f:facet>
-#{pr.ISBN}
+<f:facet name="header" value="ISBN">MONTO COMPRAS</f:facet>
+#{pr.monto_compras}
 </h:column>
 <h:column>
 <f:facet name="header" value="Nombre">Nombre</f:facet>
-#{pr.nombre}
+#{pr.nombres}
 </h:column>
 <h:column>
-<f:facet name="header" value="Editorial">Editorial</f:facet>
-#{pr.editorial}
+<f:facet name="header" value="Apellidos">Apellidos</f:facet>
+#{pr.apellidos}
 </h:column>
 <h:column>
-<f:facet name="header" value="Año Publicacion">Anio Publicacion</f:facet>
-#{pr.anio_publicacion}
+<f:facet name="header" value="Cedula">Cedula</f:facet>
+#{pr.cedula}
 </h:column>
 <h:column>
-<f:facet name="header" value="Precio">Precio</f:facet>
-#{pr.precio}
+<f:facet name="header" value="telefono">Telefono</f:facet>
+#{pr.telefono}
 </h:column>
 <h:column>
-<f:facet name="header" value="Stock">Stock</f:facet>
-#{pr.stock}
+<f:facet name="header" value="Stock">Fecha Nacimiento</f:facet>
+#{pr.fecha_nacimiento}
+</h:column>
+</h:dataTable>
+</h:form>  
+ 
+             
+ 
+            </div>
+            <div class="card-body">
+            
+                         
+  <h:form>
+<h:dataTable value="#{usuarioControlador.mostrarreportenumero()}" var="pr" class="table table-bordered table-striped">
+<h:column>
+<f:facet name="header" value="ISBN">Cantidad COMPRAS</f:facet>
+#{pr.numero_compras}
 </h:column>
 <h:column>
-<f:facet name="header" value="Likes">Likes</f:facet>
-#{pr.likes}
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{pr.nombres}
 </h:column>
 <h:column>
-<f:facet name="header" value="Categoria">ID Categoria</f:facet>
-#{pr.id_cat_producto_FK}
+<f:facet name="header" value="Apellidos">Apellidos</f:facet>
+#{pr.apellidos}
 </h:column>
 <h:column>
-<f:facet name="header" value="Autor">ID Autor</f:facet>
-#{pr.id_aut_producto_FK}
+<f:facet name="header" value="Cedula">Cedula</f:facet>
+#{pr.cedula}
+</h:column>
+<h:column>
+<f:facet name="header" value="telefono">Telefono</f:facet>
+#{pr.telefono}
+</h:column>
+<h:column>
+<f:facet name="header" value="Stock">Fecha Nacimiento</f:facet>
+#{pr.fecha_nacimiento}
 </h:column>
 </h:dataTable>
 </h:form>  
