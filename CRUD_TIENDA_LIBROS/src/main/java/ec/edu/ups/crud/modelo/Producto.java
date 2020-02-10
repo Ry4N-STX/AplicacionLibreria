@@ -19,34 +19,34 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Producto {
 	
 	@Id
-	@Column(name="pro_ISBN", length = 10)
+	@Column(name="pro_ISBN")
 	private String ISBN;
 	
-	@Column(name="pro_nombre", length = 200)
+	@Column(name="pro_nombre")
 	private String nombre;
 	
-	@Column(name="pro_editorial", length = 200)
+	@Column(name="pro_editorial")
 	private String editorial;
 	
-	@Column(name="pro_anio_publicacion", length = 200)
+	@Column(name="pro_anio_publicacion")
 	private String anio_publicacion;
 	
-	@Column(name="pro_link", length = 200)
+	@Column(name="pro_link")
 	private String link;
 	
-	@Column(name="pro_descripcion", length = 500)
+	@Column(name="pro_descripcion")
 	private String descripcion;
 	
-	@Column(name="pro_stock", length = 10)
+	@Column(name="pro_stock")
 	private int stock;
 	
-	@Column(name="pro_precio", length = 10)
+	@Column(name="pro_precio")
 	private double precio;
 	
 	@Column(name="pro_cantidad_vendidos")
 	private int cantidad_vendidos;
 	 
-	@Column(name="pro_likes", length = 10)
+	@Column(name="pro_likes")
 	private int likes;
 	
 	@Column(name="id_cat_producto_FK")

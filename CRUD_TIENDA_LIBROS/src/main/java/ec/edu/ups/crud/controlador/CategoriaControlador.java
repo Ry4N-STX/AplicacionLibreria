@@ -78,7 +78,7 @@ public class CategoriaControlador {
 		List list = new ArrayList(li.size());
 		int cont=0;
 		for (Categoria c :li) {
-			list.add(c.getIdCategoria());
+			list.add(c.getCat_nombre());
 		}
    	    return list;
       }
@@ -107,5 +107,7 @@ public class CategoriaControlador {
 		cdao.actualizarCA(categoria);
 		return null;
 	}
-
+	public int retornaid(String nombre) {
+		return cdao.idcat(nombre);
+	}
 }

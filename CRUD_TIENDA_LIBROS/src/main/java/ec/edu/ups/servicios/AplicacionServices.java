@@ -1,5 +1,6 @@
 package ec.edu.ups.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -94,28 +95,44 @@ public class AplicacionServices {
  * @param recibe una usuario de tipo Usuario para comparar
  * @return nos da una respuesta con el estado de la transaccion
  */
-@POST
+@GET
 @Path("/Logearse")
 @Produces("application/json")
-@Consumes("application/json")
-public respues log(Usuario us){
+public String log(@QueryParam("correo")String correo,@QueryParam("pssw")String pssw){
 respues r=new respues();
 try {
-Usuario u1=uc.buscarapli(us.getCedula());
-if(us.getPassword().equals(u1.getPassword())){
-	r.setId(1);
-	r.setMensaje("logeado");
+	System.out.println("correo "+correo+" psw "+pssw);
+Usuario u1=uc.usuloedo(correo);
+if(pssw.equals(u1.getPassword())){
+	return "Logeado";
 }else {
-	r.setId(2);
-	r.setMensaje("contraseña incorrecta");
+	return "Parametros Inconrrectos 4";
 }	
 	} catch (Exception e) {
-		r.setId(99);
-		r.setMensaje("error al incertar");
+		return "Parametros Inconrrectos";
 		
 	}
-	return r;
+
 	}
+
+
+@GET
+@Path("/obtenerLogearseusu")
+@Produces("application/json")
+//@Consumes("application/json")
+public List<Usuario> logusuobtener(@QueryParam("correo")String correo){
+try {
+	return uc.usuloedo3(correo);
+
+	} catch (Exception e) {
+		return null;
+		
+	}
+
+	}
+
+
+
 
 
 /**
@@ -131,6 +148,89 @@ if(us.getPassword().equals(u1.getPassword())){
 public List<Carrito> listavcarrito(Carrito c){
 	return gtio.listaCarritoUsuario(c.getId_usuario_FK());
 }
+
+
+@GET
+@Path("/listaDirusuario")
+@Produces("application/json")
+public List<Direccion> listaDirUsu(@QueryParam("CI") String CI){
+	return gtio.listaDirecUsu(CI);
+}
+
+@GET
+@Path("/listafactcabe")
+@Produces("application/json")
+public List<FacCabemos> listafacusu(@QueryParam("CI") String CI){
+	List<FACT_Cabecera> fa=gtio.listaFactUsu(CI);
+	List<FacCabemos> faM= new ArrayList<FacCabemos>();
+	for (FACT_Cabecera f:fa) {
+		FacCabemos fm=new FacCabemos();
+		fm.setIdFactCabecera(f.getIdFactCabecera());
+		fm.setFecha_factura(f.getFecha_factura());
+		fm.setTotal(f.getTotal());
+		faM.add(fm);
+	}
+	 
+	return faM;
+}
+
+
+
+@GET
+@Path("/listaTarjetausuario")
+@Produces("application/json")
+public List<Tarjeta> listaTarjeUsu(@QueryParam("CI") String CI){
+	return gtio.listaTarjcUsu(CI);
+}
+
+
+
+@GET
+@Path("/listacarritousuarionuevo")
+@Produces("application/json")
+public List<LibroDetalle> listavcarritonueva(@QueryParam("CI")String ci){
+	List<Carrito> ca= gtio.listaCarritoUsuario(ci);
+	List<LibroDetalle> nuev = new ArrayList<LibroDetalle>();
+	for(Carrito c: ca) {
+		LibroDetalle lid=new LibroDetalle();
+		Producto p=gtio.buscarPRO(c.getId_prod_carrito_FK());
+		lid.setNombre(p.getNombre());
+		lid.setCantidad(String.valueOf(c.getCantidad()));
+		lid.setIdcarrito(c.getIdCarrito());
+		lid.setPrecio(String.valueOf(p.getPrecio()));
+		lid.setTotal(String.valueOf(c.getTotal()));
+		lid.setUrl(p.getLink());
+		System.out.println("esta aqui 1");
+		boolean a=nuev.add(lid);
+		System.out.println("esta aqui 3");
+	}
+	return nuev;
+}
+
+
+
+
+@GET
+@Path("/listadetallesfact")
+@Produces("application/json")
+public List<LibroDetalle> listadetallesfact(@QueryParam("codfac")int idfac){
+	List<FACT_Detalle> det= gtio.listaFactdetaUsu(idfac);
+	List<LibroDetalle> nuev = new ArrayList<LibroDetalle>();
+	for(FACT_Detalle detll: det) {
+		LibroDetalle lid=new LibroDetalle();
+		Producto p=gtio.buscarPRO(detll.getId_prod_detalle_FK());
+		lid.setNombre(p.getNombre());
+		lid.setCantidad(String.valueOf(detll.getCantidad()));
+		lid.setIdcarrito(detll.getIdFactDetalle());
+		lid.setPrecio(String.valueOf(p.getPrecio()));
+		lid.setTotal(String.valueOf(detll.getTotal()));
+		lid.setUrl(p.getLink());
+		boolean a=nuev.add(lid);
+	}
+	return nuev;
+}
+
+
 
 
 @GET
@@ -161,14 +261,13 @@ public respues ingresarcarrito(Carrito ca){
 }
 
 
-@POST
+@GET
 @Path("/eliminararticulo")
 @Produces("application/json")
-@Consumes("application/json")
-public respues borarcarrito(Carrito ca){
+public respues borarcarrito(@QueryParam("idcarrito")int idCarrito){
 	respues r=new respues();
 	try {
-		String mn=gtio.eliminararticulo(ca.getIdCarrito());
+		String mn=gtio.eliminararticulo(idCarrito);
 		r.setId(1);
 		r.setMensaje(mn);
 		
@@ -181,14 +280,13 @@ public respues borarcarrito(Carrito ca){
 }
 
 
-@POST
+@GET
 @Path("/generarfactura")
 @Produces("application/json")
-@Consumes("application/json")
-public respues generarfactura(Carrito c){
+public respues generarfactura(@QueryParam("CI")String CI,@QueryParam("idtar")int idtar,@QueryParam("iddir")int iddir){
 	respues r=new respues();
 	try {
-		String mn=gtio.generarCompra(c.getId_usuario_FK());
+		String mn=gtio.generarCompra(CI,idtar,iddir);
 		r.setId(1);
 		r.setMensaje(mn);
 		

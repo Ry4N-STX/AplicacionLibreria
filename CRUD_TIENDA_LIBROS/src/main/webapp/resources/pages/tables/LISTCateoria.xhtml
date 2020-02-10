@@ -314,7 +314,7 @@
 </h:column>
 <h:column>
 <f:facet name="header" value="Nombre">Nombre</f:facet>
-#{cat.nombre}
+#{cat.cat_nombre}
 </h:column>
 <h:column>
 <h:commandButton action="#{categoriaControlador.eliminarCA(cat.idCategoria)}" value="Eliminar" />
@@ -346,7 +346,7 @@
 <h:message for="idcat"/>
 
 <h:outputLabel value="Nombre Categoria:" for="nombreC"/>
-<h:inputText class="form-control" value="#{categoriaControlador.categoria.nombre}" id="nombreC"/>
+<h:inputText class="form-control" value="#{categoriaControlador.categoria.cat_nombre}" id="nombreC"/>
 <h:message for="nombreC"/>
 <div class="card-footer">
 <h:commandButton class="btn btn-primary" action="#{categoriaControlador.actualizarCA()}" value="Guardar" />

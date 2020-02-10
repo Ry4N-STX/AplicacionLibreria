@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import ec.edu.ups.crud.modelo.Autor;
 import ec.edu.ups.crud.modelo.Categoria;
 
 
@@ -37,6 +38,16 @@ public class CategoriaDAO {
 		Query query= em.createQuery("SELECT C FROM LIB_CATEGORIA C",Categoria.class);
 		return query.getResultList();
 	}
-		
+	
+	public int listidcat(String nombre){
+		String sql="SELECT C FROM LIB_CATEGORIA C WHERE C.cat_nombre = '"+nombre+"'";
+		Query query= em.createQuery(sql,Categoria.class);
+		List<Categoria> au=query.getResultList();
+		for(Categoria a: au) {
+			return a.getIdCategoria();
+		}
+		return 0;
+	}
 
+	
 }

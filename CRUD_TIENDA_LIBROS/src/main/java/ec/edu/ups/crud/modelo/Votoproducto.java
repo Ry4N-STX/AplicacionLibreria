@@ -22,10 +22,10 @@ public class Votoproducto {
 	private int id;
 	
 	@Column(name="vot_idPr")
-	private String idPr;
+	private String vot_idPr;
 	
 	@Column(name="vot_idUsu")
-	private String isUsu;
+	private String vot_idUsu;
 	
 	@Column(name="vot_Estado")
 	private int estado;
@@ -38,20 +38,20 @@ public class Votoproducto {
 		this.id = id;
 	}
 
-	public String getIdPr() {
-		return idPr;
+	public String getVot_idPr() {
+		return vot_idPr;
 	}
 
-	public void setIdPr(String idPr) {
-		this.idPr = idPr;
+	public void setVot_idPr(String vot_idPr) {
+		this.vot_idPr = vot_idPr;
 	}
 
-	public String getIsUsu() {
-		return isUsu;
+	public String getVot_idUsu() {
+		return vot_idUsu;
 	}
 
-	public void setIsUsu(String isUsu) {
-		this.isUsu = isUsu;
+	public void setVot_idUsu(String vot_idUsu) {
+		this.vot_idUsu = vot_idUsu;
 	}
 
 	public int getEstado() {
@@ -64,8 +64,12 @@ public class Votoproducto {
 
 	@Override
 	public String toString() {
-		return "Votoproducto [id=" + id + ", idPr=" + idPr + ", isUsu=" + isUsu + ", estado=" + estado + "]";
+		return "Votoproducto [id=" + id + ", vot_idPr=" + vot_idPr + ", vot_idUsu=" + vot_idUsu + ", estado=" + estado
+				+ "]";
 	}
+
+	
+	
 	
 
 }

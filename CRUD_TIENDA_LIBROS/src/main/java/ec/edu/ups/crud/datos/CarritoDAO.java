@@ -33,8 +33,14 @@ public class CarritoDAO {
 	 return em.find(Carrito.class, ca);  
     }
 	
-	public List<Carrito> listaCarritoprueba(int id){
-		String jpql="SELECT C FROM LIB_CARRITO C WHERE C.car_id = "+id;
+	public List<Carrito> listaCarritoprueba(String cedula){
+		String jpql="SELECT C FROM LIB_CARRITO C WHERE C.id_usuario_FK = '"+cedula+"'";
+		Query query= em.createQuery(jpql,Carrito.class); 
+		return query.getResultList();
+	}
+	
+	public List<Carrito> listaCarrito3(String cedula,String isbn){
+		String jpql="SELECT C FROM LIB_CARRITO C WHERE C.id_usuario_FK = '"+cedula+"' AND C.id_prod_carrito_fk = '"+isbn+"'";
 		Query query= em.createQuery(jpql,Carrito.class); 
 		return query.getResultList();
 	}

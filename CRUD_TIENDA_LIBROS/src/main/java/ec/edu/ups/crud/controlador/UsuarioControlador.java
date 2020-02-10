@@ -73,7 +73,14 @@ public class UsuarioControlador {
 		return u;
 	}
 	
+	public Usuario usuloedo(String correo) {
+		Usuario u=udao.usuloedo(correo);
+		return u;
+	}
 
+	public List<Usuario> usuloedo3(String correo) {
+		return udao.usuloedo3(correo);
+	}
 	
 	public String actualizarp() {
 		udao.actualizarp(usuario);
@@ -89,7 +96,13 @@ public class UsuarioControlador {
      public List<Usuario> mostrar(){
   	    return udao.mostrarPersonas();
      }
-	
+     public List<Usuario> mostrarreportenumero(){
+   	    return udao.mostrarusuReportcompras();
+      }
+     
+     public List<Usuario> mostrarreporteMonto(){
+    	    return udao.mostrarusuReportMontocompras();
+       }
 
 	public String getCedulaDATO() {
 		return cedulaDATO;

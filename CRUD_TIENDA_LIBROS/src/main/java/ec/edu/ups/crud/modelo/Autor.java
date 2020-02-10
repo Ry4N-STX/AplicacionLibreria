@@ -19,13 +19,13 @@ import javax.persistence.Table;
 public class Autor {
 	
 	@Id
-	@Column(name="aut_id" , length = 10)
+	@Column(name="aut_id")
 	private int IdAutor;
 
-	@Column(name="aut_nombre_autor" , length = 10)
-	private String nombre_autor;
+	@Column(name="aut_nombre_autor")
+	private String aut_nombre_autor;
 	
-	@Column(name="aut_nacionalidad" , length = 10)
+	@Column(name="aut_nacionalidad")
 	private String nacionalidad;
 	
 	
@@ -41,12 +41,14 @@ public class Autor {
 		IdAutor = idAutor;
 	}
 
-	public String getNombre_autor() {
-		return nombre_autor;
+
+
+	public String getAut_nombre_autor() {
+		return aut_nombre_autor;
 	}
 
-	public void setNombre_autor(String nombre_autor) {
-		this.nombre_autor = nombre_autor;
+	public void setAut_nombre_autor(String aut_nombre_autor) {
+		this.aut_nombre_autor = aut_nombre_autor;
 	}
 
 	public String getNacionalidad() {
@@ -73,11 +75,13 @@ public class Autor {
 		productos.add(prod);
 
 	}
+
 	@Override
 	public String toString() {
-		return "Autor [IdAutor=" + IdAutor + ", nombre_autor=" + nombre_autor + ", nacionalidad=" + nacionalidad
+		return "Autor [IdAutor=" + IdAutor + ", aut_nombre_autor=" + aut_nombre_autor + ", nacionalidad=" + nacionalidad
 				+ "]";
 	}
+	
 
 
 }

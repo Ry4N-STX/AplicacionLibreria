@@ -1,8 +1,8 @@
-﻿/* Dark Admin Bootstrap Theme by PrepBootstrap - http://www.prepbootstrap.com */
+/* Dark Admin Bootstrap Theme by PrepBootstrap - http://www.prepbootstrap.com */
 html {
   font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 200%;
+  -webkit-text-size-adjust: 800%;
 }
 body {
   margin: 0;
@@ -229,6 +229,7 @@ th {
   }
   .navbar {
     display: none;
+    
   }
   .table td,
   .table th {
@@ -243,6 +244,8 @@ th {
   }
   .table {
     border-collapse: collapse !important;
+    width: 1px;
+    
   }
   .table-bordered th,
   .table-bordered td {
@@ -266,7 +269,7 @@ html {
 }
 body {
   font-family: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 80px;
   line-height: 1.42857143;
   color: #BDBDBD;
   background-color: #060606;
@@ -731,12 +734,12 @@ pre code {
   padding-left: 15px;
   padding-right: 15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
   .container {
     width: 750px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 2000px) {
   .container {
     width: 970px;
   }

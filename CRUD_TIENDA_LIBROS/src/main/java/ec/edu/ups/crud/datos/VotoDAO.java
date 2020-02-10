@@ -42,10 +42,8 @@ public class VotoDAO {
 	}
 	
 	public int EstadoLibro(String cedula,String idp){
-		String jpql="SELECT C FROM Votoproducto C WHERE C.vot_idPr = ?1  AND C.vot_idUsu = ?2";
+		String jpql="SELECT C FROM Votoproducto C WHERE C.vot_idPr = '"+idp+"'  AND C.vot_idUsu = '"+cedula+"'";
 		Query query= em.createQuery(jpql,Votoproducto.class); 
-		query.setParameter(1, idp);
-		query.setParameter(2, cedula);
 		List<Votoproducto> i=query.getResultList();
 		for (Votoproducto v: i ) {
 			return v.getEstado();
@@ -54,10 +52,8 @@ public class VotoDAO {
 	}
 	
 	public boolean votprev(String cedula,String idp){
-		String jpql="SELECT C FROM Votoproducto C WHERE C.vot_idPr = ?1  AND C.vot_idUsu = ?2";
+		String jpql="SELECT C FROM Votoproducto C WHERE C.vot_idPr = '"+idp+"'  AND C.vot_idUsu = '"+cedula+"'";
 		Query query= em.createQuery(jpql,Votoproducto.class); 
-		query.setParameter(1, idp);
-		query.setParameter(2, cedula);
 		List<Votoproducto> i=query.getResultList();
 		if (i.isEmpty()) {
 			return false;
@@ -68,10 +64,9 @@ public class VotoDAO {
 	}
 	
 	public Votoproducto buscarvot(String cedula,String idp){
-		String jpql="SELECT C FROM Votoproducto C WHERE C.vot_idPr = ?1  AND C.vot_idUsu = ?2";
+		String jpql="SELECT C FROM Votoproducto C WHERE C.vot_idPr = '"+idp+"'  AND C.vot_idUsu = '"+cedula+"'";
 		Query query= em.createQuery(jpql,Votoproducto.class); 
-		query.setParameter(1, idp);
-		query.setParameter(2, cedula);
+	
 		List<Votoproducto> i=query.getResultList();
 		for (Votoproducto v: i ) {
 			return v;

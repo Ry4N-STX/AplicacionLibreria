@@ -32,7 +32,7 @@ public class Usuario {
 	
 	@Email
 	@Column(name="usu_email")
-	private String email;
+	private String usu_email;
 	
 	@Column(name="usu_telefono")
 	private String telefono;
@@ -109,12 +109,13 @@ public class Usuario {
 		this.apellidos = apellidos;
 	}
 
-	public String getEmail() {
-		return email;
+
+	public String getUsu_email() {
+		return usu_email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsu_email(String usu_email) {
+		this.usu_email = usu_email;
 	}
 
 	public String getTelefono() {
@@ -213,14 +214,18 @@ public class Usuario {
 	public void setURL(String uRL) {
 		URL = uRL;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Usuario [cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + ", email=" + email
-				+ ", telefono=" + telefono + ", fecha_nacimiento=" + fecha_nacimiento + ", password=" + password
-				+ ", numero_compras=" + numero_compras + ", monto_compras=" + monto_compras + ", direccion_vivienda="
-				+ direccion_vivienda + ", Tipo=" + Tipo + ", URL=" + URL + "]";
+		return "Usuario [cedula=" + cedula + ", nombres=" + nombres + ", apellidos=" + apellidos + ", usu_email="
+				+ usu_email + ", telefono=" + telefono + ", fecha_nacimiento=" + fecha_nacimiento + ", password="
+				+ password + ", numero_compras=" + numero_compras + ", monto_compras=" + monto_compras
+				+ ", direccion_vivienda=" + direccion_vivienda + ", Tipo=" + Tipo + ", URL=" + URL + ", tarjeta="
+				+ tarjeta + ", cabecera=" + cabecera + ", direccion=" + direccion + ", carrito=" + carrito + ", votos="
+				+ votos + "]";
 	}
+	
+
 
 
 	

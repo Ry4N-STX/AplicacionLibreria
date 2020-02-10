@@ -32,7 +32,7 @@ public class AutorControlador {
 		List list = new ArrayList(li.size());
 		int cont=0;
 		for (Autor a :li) {
-			list.add(a.getIdAutor());
+			list.add(a.getAut_nombre_autor());
 		}
    	    return list;
       }
@@ -97,7 +97,9 @@ public class AutorControlador {
 		return null;
 	}
 
-	
-	
+	public int retornaid(String nombre) {
+		return adao.idautor(nombre);
+	}
+
 
 }

@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name="LIB_TARJETA")
 @Table(name="LIB_TARJETA")
 public class Tarjeta {
 	
@@ -33,11 +33,12 @@ public class Tarjeta {
 	
 	@Column(name="id_usuario_FK", length = 10)
 	private String id_usuario_FK;
+
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_cabecera_tarjeta_FK", referencedColumnName = "tar_id")
 	private List<FACT_Cabecera> cabecera;
-
+	
 	public int getIdTarjeta() {
 		return IdTarjeta;
 	}
@@ -76,14 +77,6 @@ public class Tarjeta {
 
 	public void setId_usuario_FK(String id_usuario_FK) {
 		this.id_usuario_FK = id_usuario_FK;
-	}
-
-	public List<FACT_Cabecera> getCabecera() {
-		return cabecera;
-	}
-
-	public void setCabecera(List<FACT_Cabecera> cabecera) {
-		this.cabecera = cabecera;
 	}
 
 	@Override

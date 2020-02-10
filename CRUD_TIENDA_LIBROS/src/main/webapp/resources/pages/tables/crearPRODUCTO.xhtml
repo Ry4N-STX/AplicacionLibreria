@@ -350,16 +350,16 @@
 -->
 <div class="card-footer">
 <h:outputLabel for="aut" value="Autor: " />
-        <h:selectOneMenu id="aut" value="#{productoControlado.producto.id_aut_producto_FK}" effect="fold" editable="true">
+        <h:selectOneMenu id="aut" value="#{productoControlado.autornombre}" effect="fold" editable="true">
             <f:selectItem itemLabel="Seleccione Autor" itemValue="" />
             <f:selectItems value="#{autorControlador.mostrarAutor()}"/>
         </h:selectOneMenu>
 </div>
 
  <h:outputLabel for="cat" value="Categoria: " />
-        <h:selectOneMenu id="cat" value="#{productoControlado.producto.id_cat_producto_FK}" effect="fold" editable="true">
+        <h:selectOneMenu id="cat" value="#{productoControlado.catrnombre}" effect="fold" editable="true">
             <f:selectItem itemLabel="Seleccione Categoria" itemValue="" />
-            <f:selectItems value="#{categoriaControlador.mostrarDT2()}"/>
+            <f:selectItems value="#{categoriaControlador.mostrarDT()}"/>
         </h:selectOneMenu>
 
 
@@ -382,7 +382,7 @@
 </h:column>
 <h:column>
 <f:facet name="header" value="Nombre">Nombre</f:facet>
-#{aut.nombre_autor}
+#{aut.aut_nombre_autor}
 </h:column>
 <h:column>
 <f:facet name="header" value="Nacionalodad">Nacionalidad</f:facet>
@@ -410,7 +410,7 @@
 </h:column>
 <h:column>
 <f:facet name="header" value="Nombre">Nombre</f:facet>
-#{cat.nombre}
+#{cat.cat_nombre}
 </h:column>
 </h:dataTable>
 </h:form>           

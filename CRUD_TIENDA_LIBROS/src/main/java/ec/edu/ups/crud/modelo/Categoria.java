@@ -21,8 +21,8 @@ public class Categoria {
 	@Column(name="cat_codigo")
 	private int IdCategoria;
 	
-	@Column(name="cat_nombre", length = 10)
-	private String Nombre;
+	@Column(name="cat_nombre")
+	private String cat_nombre;
 	
 	@OneToMany(cascade =  {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cat_producto_FK", referencedColumnName = "cat_codigo")
@@ -36,12 +36,14 @@ public class Categoria {
 		IdCategoria = idCategoria;
 	}
 
-	public String getNombre() {
-		return Nombre;
+	
+
+	public String getCat_nombre() {
+		return cat_nombre;
 	}
 
-	public void setNombre(String nombre) {
-		Nombre = nombre;
+	public void setCat_nombre(String cat_nombre) {
+		this.cat_nombre = cat_nombre;
 	}
 
 	public List<Producto> getProductos() {
@@ -63,8 +65,10 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria [IdCategoria=" + IdCategoria + ", Nombre=" + Nombre + "]";
+		return "Categoria [IdCategoria=" + IdCategoria + ", cat_nombre=" + cat_nombre + "]";
 	}
+
+	
 
 
 }

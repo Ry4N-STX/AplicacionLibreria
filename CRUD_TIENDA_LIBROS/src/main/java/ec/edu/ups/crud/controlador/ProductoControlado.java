@@ -31,6 +31,8 @@ public class ProductoControlado {
 	private Producto producto;
 	private Categoria categoria;
 	private Autor autor;
+	private String autornombre;
+	private String catrnombre;
 
 	private PieChartModel pieModel;
 	
@@ -42,6 +44,12 @@ public class ProductoControlado {
 	
 	@Inject
 	private AutorDAO at;
+	
+	@Inject
+	private AutorControlador atc;
+	
+	@Inject
+	private CategoriaControlador ctc;
 	
 	@PostConstruct
 	private void init() {
@@ -85,6 +93,15 @@ public class ProductoControlado {
 	}
 
 	
+	
+	public String getCatrnombre() {
+		return catrnombre;
+	}
+
+	public void setCatrnombre(String catrnombre) {
+		this.catrnombre = catrnombre;
+	}
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -102,6 +119,9 @@ public class ProductoControlado {
 	}
 
 	public String guardarProducto() {
+		producto.setId_aut_producto_FK(atc.retornaid(autornombre));
+		producto.setId_cat_producto_FK(ctc.retornaid(catrnombre));
+
 		System.out.println(producto);
 		pdao.guardarProducto(producto);
 		return null;
@@ -116,11 +136,11 @@ public class ProductoControlado {
 	
 	public String b(int id) {
 		Categoria c=ct.buscar(id);
-		return c.getNombre();
+		return c.getCat_nombre();
 	}
 	public String bA(int id) {
 		Autor a=at.buscar(id);
-		return a.getNombre_autor();
+		return a.getAut_nombre_autor();
 	}
 	
 	public String prueba(String nombre) {
@@ -129,33 +149,7 @@ public class ProductoControlado {
 		return null;
 	}
 	
-	
-	
 
-	
-	
-
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public List<Producto> mostrarPro(){
   	    return pdao.mostrarPro();
@@ -171,11 +165,21 @@ public class ProductoControlado {
 		return null;
 	}
 	public String actualizarPRO() {
+		producto.setId_aut_producto_FK(atc.retornaid(autornombre));
+		producto.setId_cat_producto_FK(ctc.retornaid(catrnombre));
 		pdao.actualizarPRO(producto);
 		return null;
 	}
 
 	
+	public String getAutornombre() {
+		return autornombre;
+	}
+
+	public void setAutornombre(String autornombre) {
+		this.autornombre = autornombre;
+	}
+
 	public List<Producto> mostrarrepor(){
   	    return pdao.mostrarProRepor();
      }

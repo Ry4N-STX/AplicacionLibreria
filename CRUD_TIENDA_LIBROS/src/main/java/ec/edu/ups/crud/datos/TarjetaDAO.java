@@ -40,9 +40,8 @@ public class TarjetaDAO {
 	}
 	
 	public List<Tarjeta> listaTarjetaUsuario(String cedula){
-		String jpql="SELECT C FROM LIB_TARJETA C WHERE C.id_usuario_FK = ?1";
+		String jpql="SELECT C FROM LIB_TARJETA C WHERE C.id_usuario_FK = '"+cedula+"'";
 		Query query= em.createQuery(jpql,Tarjeta.class); 
-		query.setParameter(1, cedula);
 		return query.getResultList();
 	}
 	

@@ -10,7 +10,66 @@
 	<ui:define name="contenido">
 	<a>RAFOOO</a>
 	<div>
-	<p:chart type="pie" model="#{reportesBean.pieModel}" style="width:400px;height:450px"></p:chart>
+	
+<h:form>
+<p:chart type="pie" model="#{reportesBean.pieModel}" style="width:400px;height:450px"></p:chart>
+<h:dataTable value="#{productoControlado.mostrarPro()}" var="pr" class="table table-bordered table-striped">
+<h:column>
+<f:facet name="header" value="ISBN">ISBN</f:facet>
+#{pr.ISBN}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{pr.nombre}
+</h:column>
+<h:column>
+<f:facet name="header" value="Editorial">Editorial</f:facet>
+#{pr.editorial}
+</h:column>
+<h:column>
+<f:facet name="header" value="Año Publicacion">Anio Publicacion</f:facet>
+#{pr.anio_publicacion}
+</h:column>
+<h:column>
+<f:facet name="header" value="Precio">Precio</f:facet>
+#{pr.precio}
+</h:column>
+<h:column>
+<f:facet name="header" value="Stock">Stock</f:facet>
+#{pr.stock}
+</h:column>
+<h:column>
+<f:facet name="header" value="Descripcion">Descripcion</f:facet>
+#{pr.descripcion}
+</h:column>
+<h:column>
+<f:facet name="header" value="Imagen">Link</f:facet>
+#{pr.link}
+</h:column>
+<h:column>
+<f:facet name="header" value="Likes">Likes</f:facet>
+#{pr.likes}
+</h:column>
+<h:column>
+<f:facet name="header" value="Vendidos">Vendidos</f:facet>
+#{pr.cantidad_vendidos}
+</h:column>
+<h:column>
+<f:facet name="header" value="Categoria">ID Categoria</f:facet>
+#{productoControlado.b(pr.id_cat_producto_FK)}
+</h:column>
+<h:column>
+<f:facet name="header" value="Autor">ID Autor</f:facet>
+#{productoControlado.bA(pr.id_aut_producto_FK)}
+</h:column>
+<h:column>
+<h:commandButton action="#{productoControlado.eliminar(pr.ISBN)}" value="Eliminar" />
+</h:column>
+<h:column>
+<h:commandButton action="#{productoControlado.buscarPRO(pr.ISBN)}" value="Actualizar" />
+</h:column>
+</h:dataTable>
+</h:form>   
 	</div>
 	</ui:define>
 	</ui:composition>

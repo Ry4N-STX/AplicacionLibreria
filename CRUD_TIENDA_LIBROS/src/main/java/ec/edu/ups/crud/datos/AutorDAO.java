@@ -36,5 +36,13 @@ public class AutorDAO {
 		return query.getResultList();
 	}
 		
-
+	public int listid(String nombre){
+		String sql="SELECT L FROM LIB_AUTOR L WHERE L.aut_nombre_autor = '"+nombre+"'";
+		Query query= em.createQuery(sql,Autor.class);
+		List<Autor> au=query.getResultList();
+		for(Autor a: au) {
+			return a.getIdAutor();
+		}
+		return 0;
+	}
 }

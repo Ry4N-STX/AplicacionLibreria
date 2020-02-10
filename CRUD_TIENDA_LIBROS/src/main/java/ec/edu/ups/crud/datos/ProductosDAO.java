@@ -44,5 +44,8 @@ public class ProductosDAO {
 		return query.getResultList();
 	}
 	
+	
+	
+	
 
 }

@@ -1,4 +1,7 @@
 package ec.edu.ups.negocios;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -278,8 +281,9 @@ public class Gestionbanco {
                  	    return dirdao.listaDireccion();
                     }       
 //////////////compra
-                    public boolean carritoexis(int idcarr) {
-                    	List<Carrito> c=cadao.listaCarritoprueba(idcarr);
+                    public boolean carritoexis(String ci) {
+                    	System.out.println("carro exits");
+                    	List<Carrito> c=cadao.listaCarritoprueba(ci);
                     	if(c.isEmpty()) {
                     		return false;
                     	}else {
@@ -288,21 +292,40 @@ public class Gestionbanco {
                     }
                     
                     public String guardarCarrito(String ISBN,String ci,int idcarr,int cant) {
-                   		boolean ce=carritoexis(idcarr);
+                   		boolean ce=carritoexis(ci);
+                   		System.out.println("antes del if");
                    		if (ce) { 
-							Carrito c=cadao.buscar(idcarr);
+							List<Carrito> li=cadao.listaCarritoUsuario(ci);
+						   for (Carrito c: li) {
+								if (ISBN.equals(c.getId_prod_carrito_FK())) {
+									Producto pr=prodao.buscar(ISBN);
+									if((pr.getStock()-cant)>=0) {
+										int canti=c.getCantidad();
+										c.setCantidad(canti+1);
+										c.setTotal((double)c.getCantidad()*pr.getPrecio());
+										cadao.actualizar(c);
+										return "insertado";
+									}else {
+										return "No existe el stock";
+									}	
+								}
+							}
 							Producto pr=prodao.buscar(ISBN);
 							if((pr.getStock()-cant)>=0) {
-								int canti=c.getCantidad();
-								c.setCantidad(canti+1);
-								c.setTotal((double)c.getCantidad()*pr.getPrecio());
-								cadao.actualizar(c);
-								return "insertado";
+								Carrito c= new Carrito();
+		                   		c.setCantidad(cant);
+		                   		c.setId_prod_carrito_FK(ISBN);
+		                   		c.setId_usuario_FK(ci);
+		                   		c.setTotal((double)c.getCantidad()*pr.getPrecio());
+		                    	cadao.insertar(c);
+		                   		return "insertado";
 							}else {
 								return "No existe el stock";
-							}	
+							}
+							
 							
 						}else {
+							System.out.println("este es el isbn---"+ISBN);
 							Producto pr=prodao.buscar(ISBN);
 							if((pr.getStock()-cant)>=0) {
 								Carrito c= new Carrito();
@@ -406,16 +429,20 @@ public class Gestionbanco {
 					} 
                  }
                  
-                 public String generarCompra(String CI) {
+                 public String generarCompra(String CI,int tarid,int dirid) {
                 	 int idfac=(int) ((Math.random()*(10 - 50000)+ 10)*-1);
                 	 FACT_Cabecera fc=new FACT_Cabecera();
-                	 fc.setFecha_factura("27/01/2020");
+                	 
+                	 Date date = new Date();
+                	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                	String acf=dateFormat.format(date);
+                	 fc.setFecha_factura(acf);
                 	 fc.setId_usuario_FK(CI);
                 	 fc.setIdFactCabecera(idfac);
                 	 fc.setIva(0.14*calculartotal(CI));
                 	 fc.setTotal(calculartotal(CI)+fc.getIva());
-                	 fc.setId_cabecera_tarjeta_FK(1);
-                	 fc.setId_cabecera_direccion_FK(1);
+                	 fc.setId_cabecera_tarjeta_FK(tarid);
+                	 fc.setId_cabecera_direccion_FK(dirid);
                 	 factcadao.insertar(fc); 
                 	generardatalles(CI, fc.getIdFactCabecera());
                 	 cambiarstock_numeroventas(CI, idfac);
@@ -427,7 +454,14 @@ public class Gestionbanco {
              	public List<Producto> mostrarProRepor(){
               	    return prodao.listaProductosporOdren();
                  }	
-	
+             	
+             	
+             	public List<Usuario> mostrarusuReportcompras(){
+              	    return usudao.usuarioreportNumrocompras();
+                 }
+             	public List<Usuario> mostrarusuReportMontocompras(){
+              	    return usudao.usuarioreportMontocomprado();
+                 }
              	public boolean votar(String CI,String isbn, int estado) {
              		boolean vpr=votdao.votprev(CI, isbn);
              		if(vpr) {
@@ -454,8 +488,8 @@ public class Gestionbanco {
              			Votoproducto v1=new Votoproducto();
              			Producto p=prodao.buscar(isbn);
              			v1.setEstado(1);
-             			v1.setIdPr(isbn);
-             			v1.setIsUsu(CI);
+             			v1.setVot_idPr(isbn);
+             			v1.setVot_idUsu(CI);
              			int na=p.getLikes();
          				p.setLikes(na+1);
          				prodao.actualizar(p);
@@ -466,11 +500,57 @@ public class Gestionbanco {
              	}
              	
              	public String insertardirec(Direccion d) {
-             		dirdao.insertar(d);
+             		
+             		Direccion dir=new Direccion();
+             		dir.setCalle1(d.getCalle1());
+             		dir.setCalle2(d.getCalle2());
+             		dir.setCiudad(d.getCiudad());
+             		dir.setId_usuario_FK(d.getId_usuario_FK());
+             		dir.setNumero_casa(d.getNumero_casa());
+             		dir.setPais(d.getPais());
+             		dirdao.insertar(dir);
              		return "direccion reistrada";
              	}
              	public String insertartarj(Tarjeta j) {
-             		tardao.insertar(j);
+             		Tarjeta tr=new Tarjeta();
+             		tr.setCodigo_validacion(j.getCodigo_validacion());
+             		tr.setId_usuario_FK(j.getId_usuario_FK());
+             		tr.setNumeroTarjeta(j.getNumeroTarjeta());
+             		tr.setPropietario(j.getPropietario());
+             		tardao.insertar(tr);
              		return "tarjeta reistrada";
              	}
-}
+             	
+             	public Usuario usuloedo(String correo) {
+             		return usudao.usuariolof(correo);
+             	}
+             	
+             	public List<Usuario> usuloedo3(String correo) {
+             		return usudao.usuariolof3(correo);
+             	}
+             	
+             	public List<Direccion> listaDirecUsu(String CI) {
+             		return dirdao.listaDireccionUsu(CI);
+             	}
+             	
+             	public List<Tarjeta> listaTarjcUsu(String CI) {
+             		return tardao.listaTarjetaUsuario(CI);
+             	}
+             	
+             	public List<FACT_Cabecera> listaFactUsu(String CI) {
+             		return factcadao.listaFACTCabeceraUsuario(CI);
+             	}
+             	
+             	public List<FACT_Detalle> listaFactdetaUsu(int codigo) {
+             		return factdedao.listaFACT_DetalleUsuario(codigo);
+             	}
+             	
+             	public int idautor(String nombre) {
+             		return audao.listid(nombre);
+             	}
+             	
+             	public int idcat(String nombre) {
+             		return catdao.listidcat(nombre);
+             	}
+             	
+}	
