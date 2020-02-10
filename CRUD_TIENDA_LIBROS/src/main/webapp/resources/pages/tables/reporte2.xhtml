@@ -376,6 +376,40 @@
              
  
             </div>
+            
+            
+               <div class="card-body">
+            
+                         
+  <h:form>
+<h:dataTable value="#{productoControlado.mostrarreporlikes()}" var="pr" class="table table-bordered table-striped">
+<h:column>
+<f:facet name="header" value="ISBN">Likes</f:facet>
+#{pr.likes}
+</h:column>
+<h:column>
+<f:facet name="header" value="Nombre">Nombre</f:facet>
+#{pr.nombre}
+</h:column>
+<h:column>
+<f:facet name="header" value="Apellidos">ISBN</f:facet>
+#{pr.ISBN}
+</h:column>
+<h:column>
+<f:facet name="header" value="Cedula">Publicado</f:facet>
+#{pr.anio_publicacion}
+</h:column>
+<h:column>
+<f:facet name="header" value="telefono">Editorial</f:facet>
+#{pr.editorial}
+</h:column>
+
+</h:dataTable>
+</h:form>  
+ 
+             
+ 
+            </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->

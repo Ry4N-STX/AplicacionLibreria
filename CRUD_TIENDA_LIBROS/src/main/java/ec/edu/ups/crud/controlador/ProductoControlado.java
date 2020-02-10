@@ -92,7 +92,9 @@ public class ProductoControlado {
 		this.pdao = pdao;
 	}
 
-	
+	public List<Producto> mostrarreporlikes(){
+  	    return pdao.likesre();
+     }
 	
 	public String getCatrnombre() {
 		return catrnombre;

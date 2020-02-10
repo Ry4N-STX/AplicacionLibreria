@@ -82,6 +82,9 @@ public class Gestionbanco {
 		return null;
 	}
 	
+	public List<Producto> likesre() {
+ 		return prodao.listaProductosLikes();
+ 	}
 	
 	public String actualizarCA(Categoria categoria) {
 		catdao.actualizar(categoria);

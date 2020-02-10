@@ -44,6 +44,12 @@ public class ProductosDAO {
 		return query.getResultList();
 	}
 	
+public List<Producto> listaProductosLikes(){
+		
+		Query query= em.createQuery("SELECT P FROM LIB_PRODUCTO P ORDER BY pro_likes DESC",Producto.class);
+		System.out.println(query.getResultList());
+		return query.getResultList();
+	}
 	
 	
 	
