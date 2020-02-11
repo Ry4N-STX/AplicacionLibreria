@@ -12,7 +12,7 @@ import ec.edu.ups.negocios.*;
 import ec.edu.ups.crud.modelo.Autor;
 import ec.edu.ups.crud.modelo.Categoria;
 
-@ManagedBean
+@ManagedBean 
 @ViewScoped
 public class AutorControlador {
 	
